@@ -1,0 +1,73 @@
+{
+  "sesion_id": "sint_06",
+  "origen": "sintetico",
+  "rondas": [
+    {
+      "ronda": 1,
+      "instruccion": null,
+      "pedido": null,
+      "variaciones": [
+        {
+          "id": "v1",
+          "decision": "rechazada",
+          "comentario": "sin bigote se ve mejor",
+          "rasgos_detectados": {
+            "lentes": false,
+            "barba": true,
+            "bigote": false,
+            "expresion": "serio",
+            "cabello": {
+              "color": "pelirrojo",
+              "largo": "corto"
+            }
+          }
+        },
+        {
+          "id": "v2",
+          "decision": "rechazada",
+          "comentario": "demasiado feliz",
+          "rasgos_detectados": {
+            "lentes": false,
+            "barba": true,
+            "bigote": true,
+            "expresion": "feliz",
+            "cabello": {
+              "color": "negro",
+              "largo": "largo"
+            }
+          }
+        },
+        {
+          "id": "v3",
+          "decision": "aceptada",
+          "comentario": "",
+          "rasgos_detectados": {
+            "lentes": false,
+            "barba": false,
+            "bigote": true,
+            "expresion": "enojado",
+            "cabello": {
+              "color": "rubio",
+              "largo": "corto"
+            }
+          }
+        },
+        {
+          "id": "v4",
+          "decision": "aceptada",
+          "comentario": "",
+          "rasgos_detectados": {
+            "lentes": false,
+            "barba": false,
+            "bigote": true,
+            "expresion": "enojado",
+            "cabello": {
+              "color": "pelirrojo",
+              "largo": "medio"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

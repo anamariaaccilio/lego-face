@@ -1,0 +1,7 @@
+pydantic>=2
+requests
+# solo para el LLM local (GPU):
+# torch
+# transformers>=4.45
+# accelerate
+# bitsandbytes

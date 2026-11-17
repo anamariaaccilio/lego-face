@@ -1,0 +1,73 @@
+{
+  "sesion_id": "sint_10",
+  "origen": "sintetico",
+  "rondas": [
+    {
+      "ronda": 1,
+      "instruccion": null,
+      "pedido": null,
+      "variaciones": [
+        {
+          "id": "v1",
+          "decision": "rechazada",
+          "comentario": "se ve raro",
+          "rasgos_detectados": {
+            "lentes": false,
+            "barba": false,
+            "bigote": false,
+            "expresion": "enojado",
+            "cabello": {
+              "color": "castaño",
+              "largo": "medio"
+            }
+          }
+        },
+        {
+          "id": "v2",
+          "decision": "rechazada",
+          "comentario": "el color de pelo no es el mío",
+          "rasgos_detectados": {
+            "lentes": true,
+            "barba": false,
+            "bigote": false,
+            "expresion": "feliz",
+            "cabello": {
+              "color": "pelirrojo",
+              "largo": "corto"
+            }
+          }
+        },
+        {
+          "id": "v3",
+          "decision": "rechazada",
+          "comentario": "los ojos están bien",
+          "rasgos_detectados": {
+            "lentes": false,
+            "barba": false,
+            "bigote": true,
+            "expresion": "feliz",
+            "cabello": {
+              "color": "blanco",
+              "largo": "medio"
+            }
+          }
+        },
+        {
+          "id": "v4",
+          "decision": "aceptada",
+          "comentario": "el color de pelo no es el mío",
+          "rasgos_detectados": {
+            "lentes": true,
+            "barba": false,
+            "bigote": false,
+            "expresion": "enojado",
+            "cabello": {
+              "color": "rubio",
+              "largo": "largo"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

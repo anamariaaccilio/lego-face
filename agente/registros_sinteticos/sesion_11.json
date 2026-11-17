@@ -1,0 +1,73 @@
+{
+  "sesion_id": "sint_11",
+  "origen": "sintetico",
+  "rondas": [
+    {
+      "ronda": 1,
+      "instruccion": null,
+      "pedido": null,
+      "variaciones": [
+        {
+          "id": "v1",
+          "decision": "aceptada",
+          "comentario": "parece mi hermano",
+          "rasgos_detectados": {
+            "lentes": true,
+            "barba": true,
+            "bigote": false,
+            "expresion": "enojado",
+            "cabello": {
+              "color": "pelirrojo",
+              "largo": "corto"
+            }
+          }
+        },
+        {
+          "id": "v2",
+          "decision": "rechazada",
+          "comentario": "parece mi hermano",
+          "rasgos_detectados": {
+            "lentes": false,
+            "barba": false,
+            "bigote": true,
+            "expresion": "sorprendido",
+            "cabello": {
+              "color": "rubio",
+              "largo": "largo"
+            }
+          }
+        },
+        {
+          "id": "v3",
+          "decision": "rechazada",
+          "comentario": "no me parezco",
+          "rasgos_detectados": {
+            "lentes": false,
+            "barba": false,
+            "bigote": true,
+            "expresion": "sorprendido",
+            "cabello": {
+              "color": "rubio",
+              "largo": "largo"
+            }
+          }
+        },
+        {
+          "id": "v4",
+          "decision": "aceptada",
+          "comentario": "",
+          "rasgos_detectados": {
+            "lentes": false,
+            "barba": false,
+            "bigote": false,
+            "expresion": "enojado",
+            "cabello": {
+              "color": "blanco",
+              "largo": "medio"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

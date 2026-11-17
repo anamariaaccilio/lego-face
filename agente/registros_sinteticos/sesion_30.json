@@ -1,0 +1,73 @@
+{
+  "sesion_id": "sint_30",
+  "origen": "sintetico",
+  "rondas": [
+    {
+      "ronda": 1,
+      "instruccion": null,
+      "pedido": null,
+      "variaciones": [
+        {
+          "id": "v1",
+          "decision": "rechazada",
+          "comentario": "",
+          "rasgos_detectados": {
+            "lentes": false,
+            "barba": false,
+            "bigote": false,
+            "expresion": "enojado",
+            "cabello": {
+              "color": "gris",
+              "largo": "largo"
+            }
+          }
+        },
+        {
+          "id": "v2",
+          "decision": "rechazada",
+          "comentario": "se ve raro",
+          "rasgos_detectados": {
+            "lentes": false,
+            "barba": false,
+            "bigote": true,
+            "expresion": "serio",
+            "cabello": {
+              "color": "blanco",
+              "largo": "medio"
+            }
+          }
+        },
+        {
+          "id": "v3",
+          "decision": "rechazada",
+          "comentario": "yo uso lentes",
+          "rasgos_detectados": {
+            "lentes": false,
+            "barba": true,
+            "bigote": false,
+            "expresion": "sorprendido",
+            "cabello": {
+              "color": "rubio",
+              "largo": "largo"
+            }
+          }
+        },
+        {
+          "id": "v4",
+          "decision": "rechazada",
+          "comentario": "los ojos están bien",
+          "rasgos_detectados": {
+            "lentes": true,
+            "barba": false,
+            "bigote": false,
+            "expresion": "sorprendido",
+            "cabello": {
+              "color": "gris",
+              "largo": "corto"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

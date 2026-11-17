@@ -1,0 +1,73 @@
+{
+  "sesion_id": "sint_16",
+  "origen": "sintetico",
+  "rondas": [
+    {
+      "ronda": 1,
+      "instruccion": null,
+      "pedido": null,
+      "variaciones": [
+        {
+          "id": "v1",
+          "decision": "rechazada",
+          "comentario": "parece mi hermano",
+          "rasgos_detectados": {
+            "lentes": true,
+            "barba": true,
+            "bigote": true,
+            "expresion": "sorprendido",
+            "cabello": {
+              "color": "negro",
+              "largo": "corto"
+            }
+          }
+        },
+        {
+          "id": "v2",
+          "decision": "rechazada",
+          "comentario": "",
+          "rasgos_detectados": {
+            "lentes": false,
+            "barba": false,
+            "bigote": true,
+            "expresion": "enojado",
+            "cabello": {
+              "color": "castaño",
+              "largo": "medio"
+            }
+          }
+        },
+        {
+          "id": "v3",
+          "decision": "rechazada",
+          "comentario": "me gusta la barba",
+          "rasgos_detectados": {
+            "lentes": false,
+            "barba": false,
+            "bigote": false,
+            "expresion": "feliz",
+            "cabello": {
+              "color": "pelirrojo",
+              "largo": "medio"
+            }
+          }
+        },
+        {
+          "id": "v4",
+          "decision": "rechazada",
+          "comentario": "",
+          "rasgos_detectados": {
+            "lentes": false,
+            "barba": true,
+            "bigote": false,
+            "expresion": "serio",
+            "cabello": {
+              "color": "negro",
+              "largo": "largo"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

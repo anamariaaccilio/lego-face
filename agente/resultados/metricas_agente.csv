@@ -1,0 +1,23 @@
+llm,funcion,metrica,valor
+sin LLM (plantilla/reglas),resumir,pasa_primer_intento_%,0.0
+sin LLM (plantilla/reglas),resumir,necesita_reintento_%,0.0
+sin LLM (plantilla/reglas),resumir,plantilla_por_verificador_%,0.0
+sin LLM (plantilla/reglas),resumir,plantilla_por_red_cuota_%,0.0
+sin LLM (plantilla/reglas),resumir,plantilla_sin_llm_%,100.0
+sin LLM (plantilla/reglas),resumir,reejecuciones_por_red,0
+sin LLM (plantilla/reglas),resumir,tiempo_medio_s,0.0
+sin LLM (plantilla/reglas),resumir,tokens_entrada_total,0
+sin LLM (plantilla/reglas),resumir,tokens_salida_total,0
+sin LLM (plantilla/reglas),resumir,llamadas,0
+sin LLM (plantilla/reglas),resumir,n_registros,30
+sin LLM (plantilla/reglas),interpretar,acierto_rasgos.lentes_%,100.0
+sin LLM (plantilla/reglas),interpretar,acierto_rasgos.barba_%,100.0
+sin LLM (plantilla/reglas),interpretar,acierto_rasgos.bigote_%,100.0
+sin LLM (plantilla/reglas),interpretar,acierto_rasgos.expresion_%,100.0
+sin LLM (plantilla/reglas),interpretar,acierto_cabello.color_%,100.0
+sin LLM (plantilla/reglas),interpretar,acierto_cabello.largo_%,100.0
+sin LLM (plantilla/reglas),interpretar,acierto_exacto_permitidas_%,100.0
+sin LLM (plantilla/reglas),interpretar,no_bloquea_permitidas_%,100.0
+sin LLM (plantilla/reglas),interpretar,rechaza_prohibidas_%,100.0
+sin LLM (plantilla/reglas),interpretar,reglas_por_red_cuota,0
+sin LLM (plantilla/reglas),interpretar,reejecuciones_por_red,0

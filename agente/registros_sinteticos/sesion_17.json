@@ -1,0 +1,73 @@
+{
+  "sesion_id": "sint_17",
+  "origen": "sintetico",
+  "rondas": [
+    {
+      "ronda": 1,
+      "instruccion": null,
+      "pedido": null,
+      "variaciones": [
+        {
+          "id": "v1",
+          "decision": "aceptada",
+          "comentario": "no me parezco",
+          "rasgos_detectados": {
+            "lentes": false,
+            "barba": false,
+            "bigote": true,
+            "expresion": "feliz",
+            "cabello": {
+              "color": "castaño",
+              "largo": "largo"
+            }
+          }
+        },
+        {
+          "id": "v2",
+          "decision": "aceptada",
+          "comentario": "",
+          "rasgos_detectados": {
+            "lentes": false,
+            "barba": false,
+            "bigote": true,
+            "expresion": "enojado",
+            "cabello": {
+              "color": "blanco",
+              "largo": "corto"
+            }
+          }
+        },
+        {
+          "id": "v3",
+          "decision": "aceptada",
+          "comentario": "los ojos están bien",
+          "rasgos_detectados": {
+            "lentes": false,
+            "barba": true,
+            "bigote": false,
+            "expresion": "feliz",
+            "cabello": {
+              "color": "pelirrojo",
+              "largo": "corto"
+            }
+          }
+        },
+        {
+          "id": "v4",
+          "decision": "rechazada",
+          "comentario": "me gusta el pelo",
+          "rasgos_detectados": {
+            "lentes": false,
+            "barba": false,
+            "bigote": true,
+            "expresion": "enojado",
+            "cabello": {
+              "color": "rubio",
+              "largo": "medio"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

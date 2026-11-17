@@ -1,0 +1,73 @@
+{
+  "sesion_id": "sint_25",
+  "origen": "sintetico",
+  "rondas": [
+    {
+      "ronda": 1,
+      "instruccion": null,
+      "pedido": null,
+      "variaciones": [
+        {
+          "id": "v1",
+          "decision": "aceptada",
+          "comentario": "me gusta la barba",
+          "rasgos_detectados": {
+            "lentes": false,
+            "barba": false,
+            "bigote": true,
+            "expresion": "enojado",
+            "cabello": {
+              "color": "rubio",
+              "largo": "largo"
+            }
+          }
+        },
+        {
+          "id": "v2",
+          "decision": "rechazada",
+          "comentario": "",
+          "rasgos_detectados": {
+            "lentes": false,
+            "barba": true,
+            "bigote": true,
+            "expresion": "feliz",
+            "cabello": {
+              "color": "gris",
+              "largo": "corto"
+            }
+          }
+        },
+        {
+          "id": "v3",
+          "decision": "aceptada",
+          "comentario": "",
+          "rasgos_detectados": {
+            "lentes": false,
+            "barba": false,
+            "bigote": false,
+            "expresion": "serio",
+            "cabello": {
+              "color": "pelirrojo",
+              "largo": "largo"
+            }
+          }
+        },
+        {
+          "id": "v4",
+          "decision": "rechazada",
+          "comentario": "se ve raro",
+          "rasgos_detectados": {
+            "lentes": true,
+            "barba": false,
+            "bigote": false,
+            "expresion": "feliz",
+            "cabello": {
+              "color": "pelirrojo",
+              "largo": "corto"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
