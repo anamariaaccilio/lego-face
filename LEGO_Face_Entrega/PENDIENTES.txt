@@ -1,0 +1,15 @@
+PENDIENTES ANTES DE ENTREGAR
+
+Ya resuelto con el material del equipo: Fig. 3 con retrato sintético, Fig. 4 con capturas
+actuales, parecido (CLIP) y diversidad (LPIPS) en el Cuadro 3 y VIII.B, Anexo A y tiempo real de FLUX.
+
+1. Prueba con personas (VIII.D, Anexo B y diapositiva 14 de la PPT)
+   Usar 05_Usabilidad/guia_prueba.md y llenar plantilla_respuestas.csv.
+   Luego:  python calcular_sus.py  (genera anexo_b.md con la tabla del anexo).
+2. Video con una persona de otra carrera (03_Video). Pegar el enlace en ENLACES.txt y en la PPT.
+3. Aceptación por ronda y por método (Cuadro 3, fila "Respuesta a decisiones"):
+   python scripts/calcular_aceptacion.py <carpeta registros> --salida aceptacion
+4. Agente con LLM (VIII.C y Cuadro 3, fila "Coherencia"): falta Groq (GROQ_API_KEY).
+   El README del compañero menciona una carpeta agente_eval/ con Qwen local, pero no vino en el zip.
+5. Enlaces del repositorio, video y Drive en ENLACES.txt.
+6. Lectura final del equipo, cada uno su parte, y ensayo de la exposición de 10 minutos.

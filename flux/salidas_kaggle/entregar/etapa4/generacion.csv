@@ -1,0 +1,16 @@
+k,semilla_final,reintentos,descartada,motivo,cobertura,segundos,intentos,por_defecto,png,foto
+0,42,0,False,,0.054,35.01,42:ok,,/kaggle/working/flux_cara/etapa4/3626cp7a_04/cara_0_s42.png,3626cp7a_04.jpg
+1,43,0,False,,0.082,34.46,43:ok,,/kaggle/working/flux_cara/etapa4/3626cp7a_04/cara_1_s43.png,3626cp7a_04.jpg
+2,44,0,False,,0.066,34.63,44:ok,,/kaggle/working/flux_cara/etapa4/3626cp7a_04/cara_2_s44.png,3626cp7a_04.jpg
+3,45,0,False,,0.072,34.57,45:ok,,/kaggle/working/flux_cara/etapa4/3626cp7a_04/cara_3_s45.png,3626cp7a_04.jpg
+4,46,0,False,,0.099,34.64,46:ok,,/kaggle/working/flux_cara/etapa4/3626cp7a_04/cara_4_s46.png,3626cp7a_04.jpg
+0,42,0,False,,0.12,34.67,42:ok,,/kaggle/working/flux_cara/etapa4/3626cp76_04/cara_0_s42.png,3626cp76_04.jpg
+1,43,0,False,,0.089,34.73,43:ok,,/kaggle/working/flux_cara/etapa4/3626cp76_04/cara_1_s43.png,3626cp76_04.jpg
+2,44,0,False,,0.104,34.64,44:ok,,/kaggle/working/flux_cara/etapa4/3626cp76_04/cara_2_s44.png,3626cp76_04.jpg
+3,45,0,False,,0.092,34.76,45:ok,,/kaggle/working/flux_cara/etapa4/3626cp76_04/cara_3_s45.png,3626cp76_04.jpg
+4,46,0,False,,0.097,34.51,46:ok,,/kaggle/working/flux_cara/etapa4/3626cp76_04/cara_4_s46.png,3626cp76_04.jpg
+0,42,0,False,,0.141,34.66,42:ok,color,/kaggle/working/flux_cara/etapa4/3626bp39_09/cara_0_s42.png,3626bp39_09.jpg
+1,1043,1,False,,0.173,69.27,43:descartada (cabeza dibujada (silueta 48% > 30%)) | 1043:ok,color,/kaggle/working/flux_cara/etapa4/3626bp39_09/cara_1_s1043.png,3626bp39_09.jpg
+2,44,0,False,,0.145,34.85,44:ok,color,/kaggle/working/flux_cara/etapa4/3626bp39_09/cara_2_s44.png,3626bp39_09.jpg
+3,2045,2,True,cabeza dibujada (silueta 43% > 30%),0.191,104.06,45:descartada (cabeza dibujada (silueta 45% > 30%)) | 1045:descartada (cabeza dibujada (silueta 48% > 30%)) | 2045:descartada (cabeza dibujada (silueta 43% > 30%)),color,/kaggle/working/flux_cara/etapa4/3626bp39_09/cara_3_s2045.png,3626bp39_09.jpg
+4,46,0,False,,0.15,34.5,46:ok,color,/kaggle/working/flux_cara/etapa4/3626bp39_09/cara_4_s46.png,3626bp39_09.jpg

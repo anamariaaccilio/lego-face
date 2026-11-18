@@ -1,0 +1,11 @@
+idx,nombre,semilla,segundos,salida,ancho,alto,media_rgb
+0,3626cp7a_04.jpg,42,32.26,/kaggle/working/flux_cara/etapa1/crudas/base/00_3626cp7a_04.png,512,512,"[219, 202, 55]"
+1,3626cp76_04.jpg,42,31.84,/kaggle/working/flux_cara/etapa1/crudas/base/01_3626cp76_04.png,512,512,"[225, 202, 48]"
+2,3626bp39_09.jpg,42,33.63,/kaggle/working/flux_cara/etapa1/crudas/base/02_3626bp39_09.png,512,512,"[208, 196, 3]"
+3,3626cpx8_03.jpg,42,35.41,/kaggle/working/flux_cara/etapa1/crudas/base/03_3626cpx8_03.png,512,512,"[227, 206, 46]"
+4,3626bpw9_01.jpg,42,34.1,/kaggle/working/flux_cara/etapa1/crudas/base/04_3626bpw9_01.png,512,512,"[218, 200, 41]"
+5,3626bpw8_03.jpg,42,34.83,/kaggle/working/flux_cara/etapa1/crudas/base/05_3626bpw8_03.png,512,512,"[217, 206, 5]"
+6,3626cpx0_02.jpg,42,34.38,/kaggle/working/flux_cara/etapa1/crudas/base/06_3626cpx0_02.png,512,512,"[221, 209, 8]"
+7,3626cp1l_02.jpg,42,34.74,/kaggle/working/flux_cara/etapa1/crudas/base/07_3626cp1l_02.png,512,512,"[209, 194, 8]"
+8,3626bp0k_07.jpg,42,34.51,/kaggle/working/flux_cara/etapa1/crudas/base/08_3626bp0k_07.png,512,512,"[223, 212, 2]"
+9,3626cpx9_08.jpg,42,34.65,/kaggle/working/flux_cara/etapa1/crudas/base/09_3626cpx9_08.png,512,512,"[219, 209, 9]"

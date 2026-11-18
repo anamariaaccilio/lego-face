@@ -1,0 +1,18 @@
+0 Minifig 3626bp39_09
+0 Name: minifig_3626bp39_09.ldr
+0 Author: flux_cara
+0 // Foto: 3626bp39_09.jpg - cara FLUX.2-klein-4B + piezas oficiales LDraw
+0 // Cabello: corto (por defecto (femenino=False)) - color Black (de cejas: defecto)
+
+0 // Torso con brazos y manos (lineas de 76382.dat)
+1 4 0 0 0 1 0 0 0 1 0 0 0 1 973.dat
+1 4 -15.552 9 0 0.985 -0.17 0 0.17 0.985 0 0 0 1 3818.dat
+1 4 15.552 9 0 0.985 0.17 0 -0.17 0.985 0 0 0 1 3819.dat
+1 14 -23.69 26.774 -9.898 0.985 -0.12 0.12 0.17 0.696 -0.696 0 0.707 0.707 3820.dat
+1 14 23.69 26.774 -9.898 0.985 0.12 -0.12 -0.17 0.696 -0.696 0 0.707 0.707 3820.dat
+0 // Caderas y piernas
+1 1 0 32 0 1 0 0 0 1 0 0 0 1 73200b-f1.dat
+0 // Cabeza con la cara generada (!TEXMAP)
+1 14 0 -24 0 1 0 0 0 1 0 0 0 1 cabeza_3626bp39_09.dat
+0 // Cabello
+1 0 0 -24 0 1 0 0 0 1 0 0 0 1 40233.dat

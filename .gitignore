@@ -9,3 +9,6 @@ interfaz/servidor/.venv/
 interfaz/servidor/registros/
 interfaz/web/node_modules/
 interfaz/web/dist/
+
+# flux: librería LDraw (140 MB, se descarga sola)
+flux/ldraw/
