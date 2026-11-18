@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fábrica de caras</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='4' y='10' width='24' height='18' rx='3' fill='%23F2CD37'/%3E%3Crect x='10' y='5' width='12' height='6' rx='2' fill='%23F2CD37'/%3E%3Ccircle cx='12' cy='17' r='2' fill='%231B2A34'/%3E%3Ccircle cx='20' cy='17' r='2' fill='%231B2A34'/%3E%3Cpath d='M11 22q5 4 10 0' stroke='%231B2A34' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E" />
+  </head>
+  <body>
+    <div id="escena"></div>
+
+    <header class="cabecera">
+      <div class="marca"><span class="logo" aria-hidden="true"></span>Fábrica de caras</div>
+      <span id="estado" class="estado">Conectando</span>
+      <button id="sonido" class="boton-sonido" type="button"></button>
+    </header>
+
+    <div id="globo" class="globo" hidden aria-live="polite">
+      <span class="quien">Tito</span>
+      <p class="texto"></p>
+    </div>
+
+    <section id="panel" class="panel" hidden></section>
+
+    <div id="cuenta" class="cuenta" hidden></div>
+    <div id="flash" class="flash"></div>
+    <video id="video" muted playsinline hidden></video>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

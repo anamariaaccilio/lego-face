@@ -1,3 +1,11 @@
 .env
 __pycache__/
 agente/resultados/*.jsonl
+
+# app: pesos y código extraídos de los zips, entornos y builds
+Face/
+LegoFace_Local/
+interfaz/servidor/.venv/
+interfaz/servidor/registros/
+interfaz/web/node_modules/
+interfaz/web/dist/

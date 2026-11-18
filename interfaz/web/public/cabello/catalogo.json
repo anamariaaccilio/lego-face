@@ -1,0 +1,68 @@
+[
+ {
+  "id": "3901",
+  "nombre": "Clásico corto",
+  "largo": "corto",
+  "ldraw": "Minifig Hair Male"
+ },
+ {
+  "id": "40233",
+  "nombre": "Corto despeinado",
+  "largo": "corto",
+  "ldraw": "Minifig Hair Short Tousled"
+ },
+ {
+  "id": "99930",
+  "nombre": "Peinado al costado",
+  "largo": "corto",
+  "ldraw": "Minifig Hair Short Combed Sideways with Left Parting"
+ },
+ {
+  "id": "2631",
+  "nombre": "En punta",
+  "largo": "corto",
+  "ldraw": "Minifig Hair Short Spiked, Swept Up in Front"
+ },
+ {
+  "id": "62711",
+  "nombre": "Bob",
+  "largo": "medio",
+  "ldraw": "Minifig Hair Short Bob Cut"
+ },
+ {
+  "id": "88283",
+  "nombre": "Medio despeinado",
+  "largo": "medio",
+  "ldraw": "Minifig Hair Mid-Length Tousled with Centre Parting"
+ },
+ {
+  "id": "29634",
+  "nombre": "Muy rizado",
+  "largo": "medio",
+  "ldraw": "Minifig Hair Female Very Curly - Parted in Middle"
+ },
+ {
+  "id": "40251",
+  "nombre": "Largo ondulado",
+  "largo": "largo",
+  "ldraw": "Minifig Hair Long Wavy"
+ },
+ {
+  "id": "40239",
+  "nombre": "Largo lacio",
+  "largo": "largo",
+  "ldraw": "Minifig Hair Long Straight"
+ },
+ {
+  "id": "6093a",
+  "nombre": "Cola de caballo",
+  "largo": "largo",
+  "ldraw": "Minifig Hair Ponytail"
+ },
+ {
+  "id": "25613",
+  "nombre": "Moño",
+  "largo": "largo",
+  "ldraw": "Minifig Hair Female with Top Knot Bun and Fringe"
+ }
+]
