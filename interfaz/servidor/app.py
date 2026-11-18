@@ -314,7 +314,7 @@ def decidir(sid: str, body: Decisiones):
         if d.decision not in ("aceptada", "rechazada"):
             raise HTTPException(400, "Decisión inválida.")
         motivos = [m for m in d.motivos if m in MOTIVOS] if d.decision == "rechazada" else []
-        comentario = d.comentario.strip()[:200] or ", ".join(m.lower() for m in motivos)
+        comentario = "; ".join(x for x in (", ".join(m.lower() for m in motivos), d.comentario.strip()[:200]) if x)
         vs[d.id].update(decision=d.decision, comentario=comentario)
     reg["rondas"][-1].update(decidida=ahora(), por_paquete=body.por_paquete)
     guardar(s)

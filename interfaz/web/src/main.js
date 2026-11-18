@@ -897,7 +897,9 @@ function decidir(i, decision, porPaquete = false, conSonido = true) {
   if (conSonido) decision === 'aceptada' ? sonido.aprobar() : sonido.rechazar();
   const c = est.caras[i];
   const previo = est.decisiones[c.id];
-  est.decisiones[c.id] = { decision, motivos: decision === 'rechazada' ? previo?.motivos || [] : [] };
+  est.decisiones[c.id] = decision === 'rechazada'
+    ? { decision, motivos: previo?.motivos || [], comentario: previo?.comentario || '' }
+    : { decision, motivos: [], comentario: '' };
   est.porPaquete = porPaquete;
   mundo.control.decidir(i, decision);
 }
@@ -942,6 +944,7 @@ function dibujarControl() {
                 },
               }, m),
             ),
+            comentarioDe(d),
           )
         : null,
     );
@@ -969,6 +972,15 @@ function dibujarControl() {
   );
   panel.dataset.vista = 'control';
   if (mundo.control.seleccion != null) tarjetas[mundo.control.seleccion]?.classList.add('sel');
+}
+
+/** Comentario libre al rechazar (hasta 200 caracteres). Se guarda sin redibujar, para no perder el foco. */
+function comentarioDe(d) {
+  const campo = h('input.comentario', { type: 'text', maxlength: 200, placeholder: 'Comentario (opcional)', 'aria-label': 'Comentario' });
+  campo.value = d.comentario || '';
+  campo.addEventListener('click', (ev) => ev.stopPropagation());
+  campo.addEventListener('input', () => (d.comentario = campo.value));
+  return campo;
 }
 
 const lienzo = mundo.renderer.domElement;
