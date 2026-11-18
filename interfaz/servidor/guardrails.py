@@ -38,11 +38,18 @@ def leer_foto(datos: bytes) -> np.ndarray:
     return np.asarray(img).copy()
 
 
-def contar_caras(rgb: np.ndarray) -> int:
+def contar_caras(rgb: np.ndarray) -> int | None:
+    """Número de caras, o None si el clasificador Haar de OpenCV no está disponible."""
     global _detector
     import cv2
     if _detector is None:
-        _detector = cv2.CascadeClassifier(cv2.data.haarcascades + "haarcascade_frontalface_default.xml")
+        try:
+            _detector = cv2.CascadeClassifier(cv2.data.haarcascades + "haarcascade_frontalface_default.xml")
+        except (AttributeError, cv2.error):
+            _detector = False
+    if _detector is False or _detector.empty():
+        _detector = False
+        return None
     h, w = rgb.shape[:2]
     gris = cv2.equalizeHist(cv2.cvtColor(rgb, cv2.COLOR_RGB2GRAY))
     caras = _detector.detectMultiScale(gris, 1.1, 6, minSize=(max(48, min(h, w) // 8),) * 2)
@@ -51,6 +58,9 @@ def contar_caras(rgb: np.ndarray) -> int:
 
 def revisar_foto(rgb: np.ndarray) -> None:
     n = contar_caras(rgb)
+    if n is None:
+        print("Aviso: no cargó el clasificador de rostros de OpenCV; se omite la comprobación de cara.")
+        return
     if n == 0:
         raise FotoRechazada("sin_cara", "No encuentro tu cara. Acércate un poco y mira de frente.")
     if n > 1:

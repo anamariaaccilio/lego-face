@@ -14,15 +14,19 @@ interfaz/web/        Three.js + Vite
 
 ## Cabello
 
-El cabello no lo dibuja ningún modelo: es una pieza 3D de LDraw (11 peinados) que se encaja en la cabeza y se pinta del color elegido, incluidos rosa, azul, morado y verde.
-- En la asesoría se elige con dos preguntas y se ve en el maniquí de la oficina. En la máquina se elige en el panel.
-- Si el texto libre habla del pelo, eso va a la pieza y no a FLUX. A FLUX solo le llega el color, para las cejas.
+Después de subir o tomar una foto, elige **Desde mi foto** en **Peinado** en el panel de la máquina o en la pregunta de peinado en la asesoría. DINOv2 Small, el predictor directo Flow 1 y la VAE 1 producen una ocupación 3D que se convierte en una malla. La malla se puede previsualizar, pintar con la paleta y exportar en GLB, incluida en la cabeza. La geometría se reutiliza para todas las caras de una ronda.
 
-Las piezas están en `web/public/cabello/`. Salen de la biblioteca oficial de LDraw (CC BY 2.0; ver `CREDITOS.txt`) y se convierten con `herramientas/ldraw_a_json.py`. Para agregar un peinado, suma su número de pieza a `PEINADOS` en ese script y vuelve a correrlo con el `complete.zip` de ldraw.org.
+También puedes elegir una de las 11 piezas LDraw, o **Sin cabello**. Las piezas del catálogo están en `web/public/cabello/`; ver sus créditos y `herramientas/ldraw_a_json.py`.
+
+Los pesos de cabello vienen en `interfaz/modelos_cabello/`. Se incluye el checkpoint `flow1_v2_best.pt` de la corrida de 305 pares, con 271 pares de entrenamiento, 16 de validación y 18 de prueba. Está guardado como `flow1_best.pt`. Para usar otro checkpoint directo de la misma arquitectura, define `LEGO_CABELLO_FLOW` con la ruta al archivo. El servidor comprueba la compatibilidad con la VAE y la grilla.
+
+Por defecto el cabello corre en CPU y DINOv2 se descarga en la primera solicitud. Usa `LEGO_CABELLO_DEVICE=cuda:0` para correrlo en una GPU, o `LEGO_CABELLO_DINO` para apuntar a una copia local del mismo DINOv2 Small. La forma se genera desde la foto. El color se elige con la paleta y empieza en castaño si no has elegido otro.
+
+En una ronda nueva del generador **Modelo entrenado**, la máquina calcula cinco cabellos desde ruido gaussiano con semillas distintas. Usa el checkpoint generativo de cabello `flow1_ruido.pt`, con 25 pasos, y luego genera cinco caras con el Flow de caras. El indicador circular estima el tiempo y ajusta la estimación después de cada ronda. La pasarela recibe las parejas 1–1 a 5–5 conforme llegan las caras. En el control de calidad, **Ver las 25 combinaciones** cruza las cinco caras con los cinco cabellos. Las decisiones de la ronda se aplican a las cinco parejas de la pasarela.
 
 ## Cómo correrlo
 
-Primero descomprime `Face.zip` y `LegoFace_Local_Completo.zip` en la raíz del repo, así quedan `Face/` y `LegoFace_Local/`.
+Para usar el generador de **caras** entrenado, recupera el `Face.zip` real del repositorio con Git LFS y descomprímelo junto a `LegoFace_Local_Completo.zip` en la raíz, así quedan `Face/` y `LegoFace_Local/`. El `Face.zip` de la distribución original es un puntero LFS. Para abrir la máquina y generar, pintar y exportar únicamente la cabeza con cabello, puedes arrancar con `FLUX=0` sin esos archivos de cara. En PowerShell usa `$env:FLUX="0"` antes de ejecutar el servidor.
 
 ```powershell
 cd interfaz\servidor

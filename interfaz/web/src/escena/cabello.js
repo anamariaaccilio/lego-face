@@ -41,6 +41,20 @@ export function geometriaCabello(id) {
   return geometrias.get(id);
 }
 
+const geometriasGeneradas = new WeakMap();
+
+export function geometriaGenerada(malla) {
+  let geo = geometriasGeneradas.get(malla);
+  if (!geo) {
+    geo = new THREE.BufferGeometry();
+    geo.setAttribute('position', new THREE.Float32BufferAttribute(malla.pos, 3));
+    geo.setIndex(malla.indices);
+    geo.computeVertexNormals();
+    geometriasGeneradas.set(malla, geo);
+  }
+  return geo;
+}
+
 /** Malla lista para colgar del grupo de una Cabeza (origen en la base del cuello). */
 export function mallaCabello(geo, color) {
   const m = new THREE.Mesh(geo, new THREE.MeshStandardMaterial({ color: hexDe(color), roughness: 0.38, side: THREE.DoubleSide }));

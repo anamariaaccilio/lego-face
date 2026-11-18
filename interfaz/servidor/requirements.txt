@@ -24,3 +24,6 @@ requests
 fastapi>=0.115,<1
 uvicorn[standard]>=0.30,<1
 python-multipart>=0.0.9
+
+# Superficie 3D de la ocupación generada por Flow 1 de cabello.
+scikit-image>=0.24,<1

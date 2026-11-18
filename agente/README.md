@@ -137,3 +137,20 @@ python test_agente.py
 python generar_registros.py
 python evaluar.py --llms groq,ninguno          # en Kaggle con GPU: --llms groq,local,ninguno
 ```
+
+## Resultados
+
+30 sesiones sintéticas para resumir y 40 pedidos para interpretar (30 permitidos y 10 prohibidos). Los datos completos están en `resultados/groq/` y `resultados/kaggle_qwen25/`.
+
+| | Groq qwen3.8-27b | Qwen2.5-7B local (4 bits, Kaggle) | Sin LLM |
+|---|---|---|---|
+| Resúmenes escritos por el LLM | 30 / 30 (15 al primer intento, 15 tras reintento) | 12 / 30 (1 al primer intento, 11 tras reintento) | 0 / 30 |
+| Resúmenes en plantilla | 0 / 30 | 18 / 30 | 30 / 30 |
+| Pasan el verificador | 30 / 30 | 30 / 30 | 30 / 30 |
+| Tiempo medio por resumen | 2,3 s | 44,1 s | 0 s |
+| Interpretar: acierto exacto (30 permitidos) | 96,7 % | 90 % | 100 % |
+| Interpretar: rechaza prohibidos (10) | 100 % | 100 % | 100 % |
+
+Groq y Qwen local bloquearon por error un pedido permitido, «más parecido a mí». Groq no tuvo errores de cuota y usó 46 llamadas (79 719 tokens de entrada y 10 392 de salida).
+
+El error típico del modelo local es copiar mal los conteos de preferencias; el verificador lo detecta y la plantilla lo reemplaza, así que la persona nunca ve un resumen con errores.

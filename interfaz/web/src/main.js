@@ -4,6 +4,7 @@ import '@fontsource/fredoka/600.css';
 import './estilos.css';
 import * as THREE from 'three';
 import { api, ErrorApi } from './api.js';
+import { crearRecorte } from './recorte.js';
 import { Cabeza } from './escena/minifig.js';
 import { Mundo } from './escena/mundo.js';
 import { descargar, glbCabeza, imagenCabeza } from './exportar.js';
@@ -173,7 +174,7 @@ async function revisarEstado() {
   try {
     est.info = await api.estado();
     const g = est.info.generadores.find((x) => x.disponible);
-    if (g) {
+    if (g || est.info.cabello_foto) {
       luzEstado.className = 'estado listo';
       luzEstado.textContent = 'Máquina lista';
     } else {
@@ -345,13 +346,28 @@ async function cuentaRegresiva() {
 }
 
 function vistaPrevia(canvas, espejo) {
-  est.foto = canvas;
   mundo.cabina.mostrarFoto(canvas, espejo);
-  decir('¿Te gusta esta foto?');
-  mostrar(fila(boton('Usar esta', 'verde', enviarFoto), boton('Otra vez', 'blanco', tomarFoto)));
+  const recorte = crearRecorte(canvas, espejo);
+  const confirmar = () => {
+    est.foto = recorte.aplicar();
+    enviarFoto(ajustar);
+  };
+  function ajustar(mensaje = 'Incluye toda la cabeza y el cabello.') {
+    decir('Ajusta tu foto');
+    mostrar([
+      h('p.nota', {}, mensaje),
+      recorte.vista,
+      h('p.nota', {}, 'Arrastra el recuadro para moverlo y las esquinas para cambiar su tamaño.'),
+      fila(boton('Usar esta', 'verde', confirmar),
+        boton('Foto completa', 'blanco', recorte.restablecer),
+        boton('Otra foto', 'blanco', tomarFoto)),
+    ]);
+    panel.classList.add('ajuste-foto');
+  }
+  ajustar();
 }
 
-async function enviarFoto() {
+async function enviarFoto(ajustar) {
   decir('Déjame revisarla…');
   mostrar(fila(boton('Revisando…', 'blanco', null, { disabled: true })));
   const blob = await new Promise((r) => est.foto.toBlob(r, 'image/jpeg', 0.92));
@@ -359,16 +375,17 @@ async function enviarFoto() {
     await api.subirFoto(est.sesion, blob);
     apagarCamara();
     est.tieneFoto = true;
+    est.verCabelloFoto = false;
+    if (est.peinado?.malla) elegirPeinado(null);
     (est.trasFoto || elegirMaquina)();
   } catch (e) {
     if (e instanceof ErrorApi && e.status === 422) {
-      decir(e.message);
-      mostrar(fila(boton('Tomar otra', 'rojo', tomarFoto), botonSubir()));
+      ajustar(e.message);
     } else if (e instanceof ErrorApi && e.status === 404) {
       decir('Pasó mucho tiempo y se cerró la sesión. Empecemos de nuevo.');
       mostrar(fila(boton('Empezar', 'rojo', reiniciar)));
     } else {
-      fallaServidor(e, enviarFoto);
+      fallaServidor(e, () => enviarFoto(ajustar));
     }
   }
 }
@@ -444,6 +461,105 @@ function elegirPeinado(id) {
   est.peinado = p ? { id: p.id, nombre: p.nombre, color: est.peinado?.color || est.ficha?.cabello.color || 'castaño' } : null;
   if (est.ficha) est.ficha.cabello.largo = p?.largo || null;
   mundo.oficina.mostrarPeinado(est.peinado);
+}
+
+// La primera foto puede incluir la carga de los pesos. Las siguientes usan el tiempo medido.
+let segundosCabello = 20;
+let modeloCabelloCaliente = false;
+const segundosRonda = { completa: 45, caras: 30 };
+
+function relojCabello(estimacionInicial = null, alMedir = null) {
+  const texto = h('span', {}, '0%');
+  const circulo = h('div.reloj-cabello', {
+    role: 'progressbar', 'aria-label': 'Progreso estimado de la generación',
+    'aria-valuemin': 0, 'aria-valuemax': 100, 'aria-valuenow': 0, hidden: true,
+  }, texto);
+  let inicio;
+  let estimacion;
+  let intervalo;
+  function pintar(completo = false) {
+    const transcurrido = (performance.now() - inicio) / 1000;
+    const restante = Math.ceil(estimacion - transcurrido);
+    const avance = completo ? 100 : Math.min(95, Math.floor(100 * transcurrido / estimacion));
+    const etiqueta = completo ? 'Listo' : restante > 0 ? `~${restante} s` : '…';
+    circulo.style.setProperty('--avance', `${avance}%`);
+    circulo.setAttribute('aria-valuenow', avance);
+    circulo.setAttribute('aria-valuetext', etiqueta);
+    circulo.title = `${avance}% · ${etiqueta}`;
+    texto.textContent = etiqueta;
+  }
+  return {
+    circulo,
+    iniciar() {
+      inicio = performance.now();
+      estimacion = estimacionInicial ?? segundosCabello;
+      circulo.hidden = false;
+      pintar();
+      intervalo = setInterval(pintar, 150);
+    },
+    terminar(exito) {
+      clearInterval(intervalo);
+      if (!exito) {
+        circulo.hidden = true;
+        return;
+      }
+      const real = (performance.now() - inicio) / 1000;
+      if (estimacionInicial != null) {
+        alMedir?.(real);
+        pintar(true);
+        return;
+      }
+      if (!modeloCabelloCaliente) {
+        modeloCabelloCaliente = true;
+        segundosCabello = Math.max(3, Math.min(15, real / 2));
+      } else if (real >= 0.6) {
+        segundosCabello = Math.max(1, segundosCabello * 0.35 + real * 0.65);
+      }
+      pintar(true);
+    },
+  };
+}
+
+function botonCabelloFoto(alElegir) {
+  if (!est.tieneFoto) return h('p.nota', {}, 'Sube una foto para generar tu cabello.');
+  const reloj = relojCabello();
+  const estado = h('p.nota', { role: 'status', hidden: true });
+  const accion = boton('Desde mi foto', 'verde', async () => {
+    if (est.info?.cabello_foto !== true) {
+      estado.hidden = false;
+      estado.textContent = 'El servidor no detecta el modelo de cabello. Reinícialo desde el proyecto actualizado y revisa interfaz/modelos_cabello.';
+      return;
+    }
+    if (est.generandoCabello) return;
+    const sid = est.sesion;
+    reloj.iniciar();
+    est.generandoCabello = true;
+    accion.disabled = true;
+    estado.hidden = false;
+    estado.textContent = 'Generando cabello 3D…';
+    try {
+      const malla = await api.cabello(sid);
+      reloj.terminar(true);
+      await new Promise((resolve) => setTimeout(resolve, 250));
+      if (est.sesion !== sid || !accion.isConnected) return;
+      est.peinado = {
+        id: 'desde-foto', nombre: 'Cabello desde foto',
+        color: est.peinado?.color || est.ficha?.cabello.color || 'castaño',
+        malla,
+      };
+      if (est.ficha) est.ficha.cabello.largo = null;
+      est.verCabelloFoto = true;
+      mundo.oficina.mostrarPeinado(est.peinado);
+      alElegir();
+    } catch (e) {
+      reloj.terminar(false);
+      if (est.sesion === sid && accion.isConnected) estado.textContent = e.message;
+    } finally {
+      if (est.sesion === sid) est.generandoCabello = false;
+      accion.disabled = false;
+    }
+  });
+  return h('div', {}, h('div.reloj-cabello-fila', {}, accion, reloj.circulo), estado);
 }
 
 function pintarCabello(color) {
@@ -587,6 +703,11 @@ function preguntar(i, antes) {
         onpointerenter: q.id === 'peinado' ? () => mundo.oficina.mostrarPeinado(cambio.peinado ? { id: cambio.peinado, color: est.peinado?.color || 'castaño' } : null) : null,
         onpointerleave: q.id === 'peinado' ? () => mundo.oficina.mostrarPeinado(est.peinado) : null,
       }, hex ? h('span.muestra', { style: { background: hex } }) : null, h('strong', {}, etq)))),
+      q.id === 'peinado' ? botonCabelloFoto(() => {
+        est.preguntoPeinado = true;
+        actualizarPizarra();
+        preguntar(i + 1, 'Ya tengo tu peinado. ');
+      }) : null,
       h('div.libre', {}, campo, boton('Enviar', 'blanco', enviar)),
       h('div.pie.dos', {},
         i > 0 ? boton('Atrás', 'blanco', () => preguntar(i - 1, '')) : null,
@@ -690,9 +811,10 @@ async function elegirMaquina() {
   dibujarMaquina();
   clearInterval(vigilaEstado);
   vigilaEstado = setInterval(async () => {
-    const antes = JSON.stringify(est.info?.generadores);
+    const firma = () => JSON.stringify([est.info?.generadores, est.info?.cabello_foto]);
+    const antes = firma();
     await revisarEstado();
-    if (JSON.stringify(est.info?.generadores) !== antes && !panel.hidden && panel.dataset.vista === 'maquina') dibujarMaquina();
+    if (firma() !== antes && !est.generandoCabello && !panel.hidden && panel.dataset.vista === 'maquina') dibujarMaquina();
   }, 2500);
 }
 
@@ -765,7 +887,7 @@ function dibujarMaquina() {
       tomarFoto();
     });
   } else {
-    accion = boton(listo ? 'Fabricar 5 caras' : 'Calentando…', 'rojo', () => fabricar('nueva'), { disabled: !listo });
+    accion = boton(listo ? (g.id === 'lego_face' ? 'Generar 5 cabellos y 5 caras' : 'Fabricar 5 caras') : 'Calentando…', 'rojo', () => fabricar('nueva'), { disabled: !listo });
   }
   mostrar(
     [
@@ -786,6 +908,8 @@ function selectorPeinado(redibujar) {
   const opciones = [['Sin cabello', null], ...(catalogoCabello || []).map((p) => [p.nombre, p.id])];
   return h('div.campo', {},
     h('span.etiqueta', {}, 'Peinado'),
+    botonCabelloFoto(redibujar),
+    est.peinado?.malla ? accionesCabelloFoto() : null,
     h('div.chips', { role: 'radiogroup', 'aria-label': 'Peinado' }, opciones.map(([nombre, id]) => h('button.chip', {
       role: 'radio',
       'aria-checked': String(id === actual),
@@ -809,6 +933,38 @@ function selectorPeinado(redibujar) {
   );
 }
 
+function accionesCabelloFoto() {
+  const peinado = est.peinado;
+  const sid = est.sesion;
+  const vista = h('div', { role: 'status' });
+  const vigente = () => est.sesion === sid && est.peinado === peinado && vista.isConnected;
+  const ver = async () => {
+    est.verCabelloFoto = true;
+    try {
+      const imagen = await imagenCabeza(null, peinado, 420);
+      if (vigente()) vista.replaceChildren(h('img', {
+        src: imagen, alt: 'Vista 3D del cabello sobre la cabeza', width: 170,
+      }));
+    } catch {
+      if (vigente()) vista.textContent = 'No se pudo mostrar la vista 3D.';
+    }
+  };
+  if (est.verCabelloFoto) queueMicrotask(ver);
+  return h('div', {},
+    h('p.nota', {}, 'Cabello generado desde tu foto'),
+    est.verCabelloFoto ? null : boton('Ver en 3D', 'blanco', ver),
+    boton('Descargar cabeza con cabello (.glb)', 'blanco', async () => {
+      try {
+        const glb = await glbCabeza(null, peinado);
+        if (vigente()) descargar(glb, 'cabeza_con_cabello.glb');
+      } catch {
+        if (vigente()) vista.textContent = 'No se pudo exportar el archivo 3D.';
+      }
+    }),
+    vista,
+  );
+}
+
 /* ---------------- 4. línea de estampado ---------------- */
 
 async function fabricar(modo, instruccion = null) {
@@ -816,13 +972,22 @@ async function fabricar(modo, instruccion = null) {
   paso('fabricando');
   const linea = mundo.linea;
   est.rondaPeinado = est.peinado ? { ...est.peinado } : null;
-  linea.iniciar(5, est.rondaPeinado);
+  est.cabellosRonda = [];
+  const muestrear = modo === 'nueva' && est.generador === 'lego_face';
+  const tipoRonda = muestrear ? 'completa' : 'caras';
+  const reloj = relojCabello(segundosRonda[tipoRonda], (real) => {
+    segundosRonda[tipoRonda] = Math.max(2, real);
+  });
+  const fase = h('p.nota', { role: 'status' });
+  const etapas = h('div.reloj-cabello-fila', {},
+    boton('Generando…', 'verde', null, { disabled: true }), reloj.circulo);
+  reloj.iniciar();
   mundo.irA('fabricando');
   decir(modo === 'variar' ? 'Conservo la forma de las que aceptaste y les cambio el color.' : 'Encendiendo la máquina…');
 
   const ranuras = Array.from({ length: 5 }, () => h('div.ranura'));
   const contador = h('span.contador', {}, '0 de 5');
-  mostrar([h('div.progreso', {}, h('div.ranuras', {}, ranuras), contador)]);
+  mostrar([etapas, fase, h('div.progreso', {}, h('div.ranuras', {}, ranuras), contador)]);
   panel.dataset.vista = 'fabricando';
 
   let estampadas = 0;
@@ -832,7 +997,6 @@ async function fabricar(modo, instruccion = null) {
     contador.textContent = `${estampadas} de 5`;
     ranuras[k].classList.add('lista');
     ranuras[k].replaceChildren(h('img', { src: est.caras[k].imagen, alt: `Cara ${k + 1}` }));
-    if (estampadas === 3) decir('Van tres. Ya casi.');
   };
   const terminada = new Promise((r) => (linea.onFin = () => {
     sonido.listoRonda();
@@ -840,35 +1004,57 @@ async function fabricar(modo, instruccion = null) {
   }));
 
   try {
-    const opciones = { ...est.opciones, peinado: est.rondaPeinado };
+    if (muestrear) {
+      fase.textContent = '1 de 2 · Calculando cabello…';
+      decir('Calculando cabello…');
+      const { variantes } = await api.cabellos(est.sesion);
+      if (variantes.length !== 5) throw new Error('Se necesitan cinco variantes de cabello.');
+      est.cabellosRonda = variantes.map(({ malla, semilla }, i) => ({
+        id: 'desde-foto', nombre: `Cabello ${i + 1}`,
+        color: est.rondaPeinado?.color || 'castaño', malla, semilla,
+      }));
+      fase.textContent = 'Cabello calculado · 2 de 2 · Calculando caras…';
+      decir('Cabello calculado. Calculando caras…');
+    } else {
+      fase.textContent = 'Calculando caras…';
+    }
+    linea.iniciar(5, muestrear ? est.cabellosRonda : est.rondaPeinado);
+    let recibidas = 0;
+    const peinado = muestrear ? null : est.rondaPeinado;
+    const opciones = { ...est.opciones, peinado: peinado && { id: peinado.id, nombre: peinado.nombre, color: peinado.color } };
     for await (const ev of api.ronda(est.sesion, { generador: est.generador, opciones, modo, instruccion })) {
       if (ev.tipo === 'inicio') {
         est.ronda = ev.ronda;
         est.caras = ev.caras.map((c) => ({ ...c }));
         est.decisiones = {};
         est.porPaquete = false;
-        if (ev.explicacion) decir(ev.explicacion);
+        if (!muestrear && ev.explicacion) decir(ev.explicacion);
       } else if (ev.tipo === 'cara') {
         const i = est.caras.findIndex((c) => c.id === ev.id);
         est.caras[i].imagen = ev.imagen;
         est.caras[i].img = await cargarImagen(ev.imagen);
         linea.entregar(i, est.caras[i].img);
+        recibidas++;
+        fase.textContent = `${muestrear ? 'Cabello calculado · ' : ''}Caras: ${recibidas} de 5`;
       } else if (ev.tipo === 'error') {
         throw new ErrorApi(ev.mensaje, 500);
       }
     }
+    if (recibidas !== 5) throw new Error('La generación terminó antes de recibir las cinco caras.');
+    reloj.terminar(true);
   } catch (e) {
+    reloj.terminar(false);
     linea.activo = false;
     if (e instanceof ErrorApi && e.status === 404) {
       decir('Se cerró la sesión por inactividad. Empecemos de nuevo.');
       return mostrar(fila(boton('Empezar', 'rojo', reiniciar)));
     }
-    if (e instanceof ErrorApi && e.status === 422) {
+    if (!muestrear && e instanceof ErrorApi && e.status === 422) {
       // el agente bloqueó el pedido: se explica y se puede escribir otro
       mundo.irA('control');
       return queSigue(e.message, instruccion);
     }
-    return fallaServidor(e, () => fabricar(modo));
+    return fallaServidor(e, () => fabricar(modo, instruccion));
   }
   await terminada;
   controlCalidad();
@@ -881,7 +1067,7 @@ let tarjetas = [];
 function controlCalidad() {
   paso('control');
   mundo.irA('control');
-  mundo.control.cargar(est.caras.map((c) => c.img), est.rondaPeinado);
+  mundo.control.cargar(est.caras.map((c) => c.img), est.cabellosRonda.length ? est.cabellosRonda : est.rondaPeinado);
   decir('Revisa cada cara. Acepta las que te gusten y rechaza las que no.');
   dibujarControl();
 }
@@ -957,6 +1143,7 @@ function dibujarControl() {
   mostrar(
     [
       h('div.tarjetas', {}, tarjetas),
+      est.cabellosRonda.length ? boton('Ver las 25 combinaciones', 'azul', abrirCatalogoCombinaciones) : null,
       h(
         'div.barra',
         {},
@@ -981,6 +1168,40 @@ function comentarioDe(d) {
   campo.addEventListener('click', (ev) => ev.stopPropagation());
   campo.addEventListener('input', () => (d.comentario = campo.value));
   return campo;
+}
+
+async function abrirCatalogoCombinaciones() {
+  const dialogo = h('dialog.catalogo-combinaciones', { 'aria-label': '25 combinaciones' });
+  const estado = h('p.nota', { role: 'status' }, 'Preparando vistas…');
+  const cuadricula = h('div.combinaciones-grid');
+  const combinaciones = est.caras.flatMap((cara, i) => est.cabellosRonda.map((pelo, j) => ({
+    cara, pelo, titulo: `Cara ${i + 1} · Cabello ${j + 1}`,
+  })));
+  const cajas = combinaciones.map(({ titulo }) => h('figure', {},
+    h('div.combinacion-vista'), h('figcaption', {}, titulo)));
+  cuadricula.append(...cajas);
+  dialogo.append(h('div.catalogo-encabezado', {}, h('h2', {}, '25 combinaciones'),
+    boton('Cerrar', 'blanco', () => dialogo.close())), estado, cuadricula);
+  dialogo.addEventListener('close', () => dialogo.remove(), { once: true });
+  document.body.append(dialogo);
+  dialogo.showModal();
+  let renderer;
+  try {
+    renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, preserveDrawingBuffer: true });
+    for (const [i, { cara, pelo, titulo }] of combinaciones.entries()) {
+      if (!dialogo.open) break;
+      const imagen = await imagenCabeza(cara.img, pelo, 220, renderer);
+      if (!dialogo.open) break;
+      cajas[i].firstChild.append(h('img', { src: imagen, alt: titulo }));
+      estado.textContent = `${i + 1} de 25 combinaciones`;
+      await new Promise((resolve) => setTimeout(resolve, 0));
+    }
+  } catch {
+    if (dialogo.open) estado.textContent = 'No se pudieron mostrar todas las combinaciones.';
+  } finally {
+    renderer?.dispose();
+    renderer?.forceContextLoss();
+  }
 }
 
 const lienzo = mundo.renderer.domElement;
@@ -1013,7 +1234,7 @@ async function guardarDecisiones() {
   }
   mundo.control.seleccion = null;
   for (const c of est.caras) {
-    if (est.decisiones[c.id].decision === 'aceptada') est.aprobadas.push({ id: c.id, imagen: c.imagen, img: c.img, peinado: est.rondaPeinado });
+    if (est.decisiones[c.id].decision === 'aceptada') est.aprobadas.push({ id: c.id, imagen: c.imagen, img: c.img, peinado: est.cabellosRonda[est.caras.indexOf(c)] ?? est.rondaPeinado });
   }
   queSigue();
 }
@@ -1179,7 +1400,7 @@ async function reiniciar() {
   Object.assign(est, {
     sesion: null, ronda: null, caras: [], decisiones: {}, aprobadas: [], favorita: null, foto: null, opciones: {},
     modo: null, ficha: null, tieneFoto: false, preguntoFoto: false, trasFoto: null, generador: null,
-    peinado: null, preguntoPeinado: false, rondaPeinado: null,
+    peinado: null, preguntoPeinado: false, rondaPeinado: null, cabellosRonda: [], verCabelloFoto: false, generandoCabello: false,
   });
   mundo.oficina.mostrarPeinado(null);
   mundo.cabina.apagar();

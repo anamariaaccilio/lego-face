@@ -1,0 +1,183 @@
+codigo,texto,claridad_evaluador_1,claridad_evaluador_2
+R01,"Aceptadas:
+- v1 (ronda 1): se ve raro.
+- v2 (ronda 1): muy serio.
+- v4 (ronda 1): yo uso lentes.
+
+Rechazadas:
+- v3 (ronda 1): yo uso lentes.
+
+Preferencias observadas:
+- Con lentes: 2 de 3 aceptadas y 0 de 1 rechazadas.
+- Expresión seria: 0 de 3 aceptadas y 0 de 1 rechazadas.
+
+Cambios entre rondas:
+- De la ronda 1 a la 1: pidió ""con lentes"", y todos los aceptados tenían lentes.",,
+R02,"Aceptadas:
+- v1 (ronda 1): sin comentario.
+- v2 (ronda 1): sin comentario.
+- v5 (ronda 2): sin comentario.
+- v7 (ronda 2): sin comentario.
+- v9 (ronda 3): sin comentario.
+- v11 (ronda 3): sin comentario.
+- v12 (ronda 3): demasiado feliz.
+
+Rechazadas:
+- v3 (ronda 1): los ojos están bien.
+- v4 (ronda 1): el color de pelo no es el mío.
+- v6 (ronda 2): sin bigote se ve mejor.
+- v8 (ronda 2): sin comentario.
+- v10 (ronda 3): muy serio.
+
+Preferencias observadas:
+- Con lentes: 3 de 7 aceptadas y 2 de 5 rechazadas.
+- Expresión seria: 2 de 7 aceptadas y 1 de 5 rechazadas.
+
+Cambios entre rondas:
+- De la ronda 1 a la 2: pidió pelo más largo, y aceptó variaciones con menos bigote y barba.
+- De la ronda 2 a la 3: no pidió cambios, y aceptó variaciones con expresiones más felices.",,
+R03,"Aceptadas:
+- v1 (ronda 1): sin bigote se ve mejor.
+- v4 (ronda 1): enojado.
+- v7 (ronda 2): yo uso lentes.
+- v8 (ronda 2): sorprendido.
+- v11 (ronda 3): se ve raro.
+- v12 (ronda 3): serio.
+
+Rechazadas:
+- v2 (ronda 1): sin comentario.
+- v3 (ronda 1): parecer mi hermano.
+- v5 (ronda 2): no me parezco.
+- v6 (ronda 2): parecer mi hermano.
+- v9 (ronda 3): sin comentario.
+- v10 (ronda 3): el color de pelo no es el mío.
+
+Preferencias observadas:
+- Con lentes: 2 de 6 aceptadas y 4 de 6 rechazadas.
+- Expresión seria: 1 de 6 aceptadas y 2 de 6 rechazadas.
+
+Cambios entre rondas:
+- De la ronda 1 a la 2: pidió sin lentes, y cambió de aceptar v1 (con lentes) a rechazar v5 (con lentes).
+- De la ronda 2 a la 3: pidió cabello castaño, y cambió de aceptar v6 (cabello castaño) a rechazar v9 (cabello castaño).",,
+R04,"Aceptadas:
+- v1 (ronda 1): me gusta la barba.
+- v3 (ronda 1): expresión serio.
+
+Rechazadas:
+- v2 (ronda 1): sin comentario.
+- v4 (ronda 1): se ve raro.
+
+Preferencias observadas:
+- Con lentes: 0 de 2 aceptadas y 1 de 2 rechazadas.
+- Expresión seria: 1 de 2 aceptadas y 0 de 2 rechazadas.
+
+Cambios entre rondas:
+- De la ronda 1 a la 2: pidió evitar barbas y expresiones felices, y cómo cambiaron sus decisiones.",,
+R05,"Aceptadas:
+- v3 (ronda 1): sin comentario.
+- v4 (ronda 1): sin comentario.
+- v8 (ronda 2): parecía el hermano.
+
+Rechazadas:
+- v1 (ronda 1): parecía el hermano.
+- v2 (ronda 1): parecía el hermano.
+- v5 (ronda 2): demasiado feliz.
+- v6 (ronda 2): sin comentario.
+- v7 (ronda 2): sin comentario.
+
+Preferencias observadas:
+- Con lentes: 1 de 3 aceptadas y 4 de 5 rechazadas.
+- Expresión seria: 1 de 3 aceptadas y 3 de 5 rechazadas.
+
+Cambios entre rondas:
+- De la ronda 1 a la 2: pidió que se pusieran lentes y se viera más serio, y la decisión pasó de aceptar caras felices a aceptar caras serias.",,
+R06,"Aceptadas:
+- v3 (ronda 1): muy serio.
+- v4 (ronda 1): enojado.
+- v5 (ronda 2): sin comentario.
+- v6 (ronda 2): yo uso lentes.
+- v7 (ronda 2): sin comentario.
+- v8 (ronda 2): el color de pelo no es el mío.
+
+Rechazadas:
+- v1 (ronda 1): sin comentario.
+- v2 (ronda 1): parecer mi hermano.
+
+Preferencias observadas:
+- Con lentes: 3 de 6 aceptadas y 1 de 2 rechazadas.
+- Expresión seria: 1 de 6 aceptadas y 1 de 2 rechazadas.
+
+Cambios entre rondas:
+- De la ronda 1 a la 2: pidió cabello castaño, y cambió decisiones rechazando v1 y v2, y aceptando v5 y v6.",,
+R07,"Aceptadas:
+- v2 (ronda 1): sin comentario.
+- v3 (ronda 1): los ojos están bien.
+- v5 (ronda 2): sin comentario.
+- v8 (ronda 2): sin comentario.
+Rechazadas:
+- v1 (ronda 1): me encanta.
+- v4 (ronda 1): sin comentario.
+- v6 (ronda 2): me gusta la barba.
+- v7 (ronda 2): me gusta la barba.
+Preferencias observadas:
+- Con lentes: 3 de 4 aceptadas y 0 de 4 rechazadas.
+- Expresión seria: 0 de 4 aceptadas y 1 de 4 rechazadas.
+Cambios entre rondas:
+- De la ronda 1 a la 2: pidió ponerle lentes y que se vea más serio, y cambió sus decisiones rechazando variaciones con lentes en la primera ronda y aceptando variaciones con lentes en la segunda.",,
+R08,"Aceptadas:
+- v1 (ronda 1): no me parezco.
+- v2 (ronda 1): sin comentario.
+- v3 (ronda 1): los ojos están bien.
+Rechazadas:
+- v4 (ronda 1): me gusta el pelo.
+Preferencias observadas:
+- Con bigote: 2 de 3 aceptadas y 1 de 1 rechazada.
+- Expresión feliz: 2 de 3 aceptadas y 0 de 1 rechazadas.
+Cambios entre rondas:
+- De la ronda 1 a la 2: no hubo cambios ya que fue la única ronda.",,
+R09,"Aceptadas:
+- v2 (ronda 1): sin comentario.
+- v5 (ronda 2): parece mi hermano.
+- v6 (ronda 2): me gusta el pelo.
+- v7 (ronda 2): sin comentario.
+- v8 (ronda 2): sin comentario.
+- v11 (ronda 3): el color de pelo no es el mío.
+- v9 (ronda 3): sin comentario.
+
+Rechazadas:
+- v1 (ronda 1): no me parezco.
+- v3 (ronda 1): sin comentario.
+- v4 (ronda 1): sin comentario.
+- v10 (ronda 3): sin comentario.
+- v12 (ronda 3): sin comentario.
+
+Preferencias observadas:
+- Con lentes: 5 de 7 aceptadas y 1 de 5 rechazadas.
+- Expresión seria: 2 de 7 aceptadas y 1 de 5 rechazadas.
+
+Cambios entre rondas:
+- De la ronda 1 a la 2: pidió que esté más contento, y cambió de preferir expresiones sorprendidas a felices.
+- De la ronda 2 a la 3: pidió lentes y que se vea más serio, y cambió de preferir expresiones felices a serias.",,
+R10,"Aceptadas:
+- v1 (ronda 1): se ve raro.
+- v5 (ronda 2): sin comentario.
+- v7 (ronda 2): sin comentario.
+- v8 (ronda 2): sin comentario.
+- v10 (ronda 3): me gusta el pelo.
+- v11 (ronda 3): se ve raro.
+
+Rechazadas:
+- v2 (ronda 1): sin comentario.
+- v3 (ronda 1): serio.
+- v4 (ronda 1): feliz.
+- v6 (ronda 2): sin comentario.
+- v9 (ronda 3): enojado.
+- v12 (ronda 3): yo uso lentes.
+
+Preferencias observadas:
+- Con lentes: 2 de 6 aceptadas y 2 de 6 rechazadas.
+- Expresión seria: 1 de 6 aceptadas y 3 de 6 rechazadas.
+
+Cambios entre rondas:
+- De la ronda 1 a la 2: pidió que sonriera más, y cambió de rechazar variaciones con expresiones serias a aceptarlas.
+- De la ronda 2 a la 3: pidió que estuviera más contento, y cambió de aceptar variaciones con expresiones serias a rechazarlas.",,

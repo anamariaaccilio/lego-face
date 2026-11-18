@@ -1,6 +1,8 @@
 .env
 __pycache__/
 agente/resultados/*.jsonl
+!agente/resultados/kaggle_qwen25/*.jsonl
+!agente/resultados/groq/*.jsonl
 
 # app: pesos y código extraídos de los zips, entornos y builds
 Face/

@@ -852,3 +852,90 @@ input.comentario:focus {
     transition: none !important;
   }
 }
+
+.panel.ajuste-foto {
+  width: min(640px, calc(100vw - 32px));
+  max-height: 75dvh;
+  overflow: auto;
+}
+.ajuste-foto .nota { margin: 8px 0; }
+.ajuste-foto .fila { flex-wrap: wrap; }
+.recorte-vista {
+  position: relative;
+  margin: 12px auto;
+  outline: 1px solid var(--tinta);
+}
+.recorte-vista canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.recorte-marco {
+  position: absolute;
+  box-sizing: border-box;
+  border: 2px solid #fff;
+  outline: 1px solid #18232d;
+  cursor: move;
+  touch-action: none;
+}
+.recorte-asa {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  min-width: 0;
+  padding: 0;
+  border: 2px solid #18232d;
+  border-radius: 4px;
+  background: #fff;
+}
+.recorte-asa.nw { top: -8px; left: -8px; cursor: nwse-resize; }
+.recorte-asa.ne { top: -8px; right: -8px; cursor: nesw-resize; }
+.recorte-asa.sw { bottom: -8px; left: -8px; cursor: nesw-resize; }
+.recorte-asa.se { bottom: -8px; right: -8px; cursor: nwse-resize; }
+
+.reloj-cabello-fila {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.reloj-cabello {
+  --avance: 0%;
+  display: grid;
+  place-items: center;
+  flex: 0 0 54px;
+  aspect-ratio: 1;
+  border: 1px solid #bac9df;
+  border-radius: 50%;
+  background: conic-gradient(#2f6fd6 var(--avance), #fff 0);
+  color: #15345f;
+  font-size: .77rem;
+  font-weight: 600;
+}
+.reloj-cabello[hidden] { display: none; }
+.reloj-cabello > span {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: #fff;
+  white-space: nowrap;
+}
+
+.catalogo-combinaciones {
+  width: min(1040px, calc(100vw - 32px));
+  max-height: 87dvh;
+  border: 3px solid var(--tinta);
+  border-radius: var(--radio);
+  background: var(--papel);
+  color: var(--tinta);
+}
+.catalogo-combinaciones::backdrop { background: #122539b3; }
+.catalogo-encabezado { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.combinaciones-grid { display: grid; grid-template-columns: repeat(5,minmax(0,1fr)); gap: 10px; }
+.combinaciones-grid figure { margin: 0; text-align: center; font-size: .85rem; }
+.combinacion-vista { aspect-ratio: 1; background: #eaf2fc; border-radius: 8px; }
+.combinacion-vista img { width: 100%; display: block; }
+@media (max-width: 650px) {
+  .combinaciones-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+}

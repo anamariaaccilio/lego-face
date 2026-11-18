@@ -1,0 +1,11 @@
+codigo,llm,sesion_id
+R01,local:Qwen2.5-7B-Instruct-4bit,sint_22
+R02,local:Qwen2.5-7B-Instruct-4bit,sint_13
+R03,local:Qwen2.5-7B-Instruct-4bit,sint_24
+R04,local:Qwen2.5-7B-Instruct-4bit,sint_25
+R05,local:Qwen2.5-7B-Instruct-4bit,sint_15
+R06,local:Qwen2.5-7B-Instruct-4bit,sint_04
+R07,local:Qwen2.5-7B-Instruct-4bit,sint_01
+R08,local:Qwen2.5-7B-Instruct-4bit,sint_17
+R09,local:Qwen2.5-7B-Instruct-4bit,sint_02
+R10,local:Qwen2.5-7B-Instruct-4bit,sint_07

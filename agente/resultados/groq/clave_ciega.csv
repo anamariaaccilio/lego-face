@@ -1,0 +1,11 @@
+codigo,llm,sesion_id
+R01,api:qwen/qwen3.8-27b,sint_16
+R02,api:qwen/qwen3.8-27b,sint_26
+R03,api:qwen/qwen3.8-27b,sint_19
+R04,api:qwen/qwen3.8-27b,sint_25
+R05,api:qwen/qwen3.8-27b,sint_04
+R06,api:qwen/qwen3.8-27b,sint_05
+R07,api:qwen/qwen3.8-27b,sint_15
+R08,api:qwen/qwen3.8-27b,sint_09
+R09,api:qwen/qwen3.8-27b,sint_28
+R10,api:qwen/qwen3.8-27b,sint_03

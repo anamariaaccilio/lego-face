@@ -276,7 +276,7 @@ export class Linea {
       if (p.t >= 0.5 && !p.puesta) {
         p.puesta = true;
         this.cabezas[p.k].ponerImagen(this.listos[p.k]);
-        this.cabezas[p.k].ponerCabello(this.peinado);
+        this.cabezas[p.k].ponerCabello(Array.isArray(this.peinado) ? this.peinado[p.k] : this.peinado);
         this.chispa.intensity = 25;
         this.onEstampada?.(p.k);
       }
@@ -395,7 +395,7 @@ export class Control {
   cargar(imgs, peinado = null) {
     this.puestos.forEach((p, i) => {
       p.cabeza.ponerImagen(imgs[i]);
-      p.cabeza.ponerCabello(peinado);
+      p.cabeza.ponerCabello(Array.isArray(peinado) ? peinado[i] : peinado);
       p.decision = null;
       p.sello.visible = false;
       p.aparece = -i * 0.12;

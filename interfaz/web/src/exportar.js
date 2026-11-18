@@ -12,8 +12,8 @@ async function escenaCabeza(renderer, img, peinado) {
 }
 
 /** Render de la cabeza (con su cabello) con fondo transparente, como PNG. */
-export async function imagenCabeza(img, peinado = null, lado = 900) {
-  const r = new THREE.WebGLRenderer({ antialias: true, alpha: true, preserveDrawingBuffer: true });
+export async function imagenCabeza(img, peinado = null, lado = 900, renderer = null) {
+  const r = renderer ?? new THREE.WebGLRenderer({ antialias: true, alpha: true, preserveDrawingBuffer: true });
   r.setSize(lado, lado);
   r.toneMapping = THREE.ACESFilmicToneMapping;
   const { scene } = await escenaCabeza(r, img, peinado);
@@ -26,7 +26,10 @@ export async function imagenCabeza(img, peinado = null, lado = 900) {
   cam.lookAt(0, peinado ? 0.75 : 0.6, 0);
   r.render(scene, cam);
   const url = r.domElement.toDataURL('image/png');
-  r.dispose();
+  if (!renderer) {
+    r.dispose();
+    r.forceContextLoss();
+  }
   return url;
 }
 
@@ -36,6 +39,7 @@ export async function glbCabeza(img, peinado = null) {
   const { scene } = await escenaCabeza(r, img, peinado);
   const datos = await new GLTFExporter().parseAsync(scene, { binary: true });
   r.dispose();
+  r.forceContextLoss();
   return new Blob([datos], { type: 'model/gltf-binary' });
 }
 

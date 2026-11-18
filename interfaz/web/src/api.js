@@ -38,6 +38,8 @@ export const api = {
     fd.append('foto', blob, 'foto.jpg');
     return pedir(`/api/sesion/${sid}/foto`, { method: 'POST', body: fd });
   },
+  cabellos: (sid) => pedir(`/api/sesion/${sid}/cabellos`, post()),
+  cabello: (sid) => pedir(`/api/sesion/${sid}/cabello`, post()),
   /** Recibe las caras una por una (NDJSON). */
   async *ronda(sid, body) {
     let r;

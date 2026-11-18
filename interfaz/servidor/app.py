@@ -31,6 +31,7 @@ from PIL import Image
 from pydantic import BaseModel
 
 import guardrails
+from cabello import CabelloFoto, CabelloVacio
 from generadores import Pedido, crear_generadores
 
 AQUI = Path(__file__).resolve().parent
@@ -46,6 +47,8 @@ VIDA_SESION = 30 * 60
 MOTIVOS = ["No se parece", "Expresión", "Colores", "Defecto"]
 
 generadores = crear_generadores()
+cabello_foto = CabelloFoto()
+cabello_ruido = CabelloFoto(desde_ruido=True)
 llm = crear_llm()
 sesiones: dict[str, dict] = {}
 lock = threading.Lock()
@@ -135,6 +138,8 @@ def estado():
         "agente": {"llm": getattr(llm, "nombre", None)},
         "motivos": MOTIVOS,
         "caras_por_ronda": CARAS_POR_RONDA,
+        "cabello_foto": cabello_foto.disponible(),
+        "cabello_variantes": cabello_ruido.disponible(),
     }
 
 
@@ -167,9 +172,59 @@ async def subir_foto(sid: str, foto: UploadFile = File(...)):
         guardrails.revisar_foto(rgb)
     except guardrails.FotoRechazada as e:
         return JSONResponse({"ok": False, "codigo": e.codigo, "mensaje": e.mensaje}, status_code=422)
-    s["foto"] = rgb
+    with lock:
+        s["foto"] = rgb
+        s.pop("cabello_foto", None)
     s["registro"]["foto_revisada"] = {"caras": 1, "hora": ahora()}
     return {"ok": True}
+
+
+@app.post("/api/sesion/{sid}/cabello")
+def generar_cabello(sid: str):
+    s = sesion(sid)
+    with lock:
+        foto = s["foto"]
+        cache = s.get("cabello_foto")
+    if foto is None:
+        raise HTTPException(409, "Primero agrega una foto.")
+    if cache is not None:
+        return cache
+    if not cabello_foto.disponible():
+        raise HTTPException(503, "El modelo de cabello no está instalado.")
+    try:
+        malla = cabello_foto.generar(foto)
+    except CabelloVacio as e:
+        raise HTTPException(422, str(e)) from e
+    except Exception as e:
+        print("[cabello] error:", repr(e))
+        raise HTTPException(503, "No se pudo generar el cabello. Reintenta o elige un peinado del catálogo.") from e
+    with lock:
+        if s["foto"] is not foto or sesiones.get(sid) is not s:
+            raise HTTPException(409, "La foto cambió. Vuelve a generar el cabello.")
+        s["cabello_foto"] = malla
+    return malla
+
+
+@app.post("/api/sesion/{sid}/cabellos")
+def generar_cabellos(sid: str):
+    s = sesion(sid)
+    foto = s["foto"]
+    if foto is None:
+        raise HTTPException(409, "Primero agrega una foto.")
+    if not cabello_ruido.disponible():
+        raise HTTPException(503, "Faltan los pesos del Flow generativo de cabello.")
+    semillas = random.sample(range(2**31), CARAS_POR_RONDA)
+    try:
+        mallas = cabello_ruido.generar_variantes(foto, semillas)
+    except CabelloVacio as e:
+        raise HTTPException(422, "Una variante quedó vacía. Reintenta con otras semillas.") from e
+    except Exception as e:
+        print("[cabellos] error:", repr(e))
+        raise HTTPException(503, "No se pudieron calcular los cinco cabellos.") from e
+    if s["foto"] is not foto or sesiones.get(sid) is not s:
+        raise HTTPException(409, "La foto cambió. Vuelve a iniciar la generación.")
+    return {"variantes": [{"semilla": semilla, "malla": malla}
+                          for semilla, malla in zip(semillas, mallas)]}
 
 
 class Texto(BaseModel):
@@ -256,8 +311,12 @@ def ronda(sid: str, body: PedidoRonda):
     r = {"ronda": n, "instruccion": instruccion, "pedido": pedido, "generador": g.nombre,
          "opciones": nombres, "inicio": ahora(), "variaciones": vs}
     peinado = body.opciones.get("peinado")
-    if peinado:  # pieza de cabello de LDraw que se encajó en las 5 cabezas
-        r["peinado"] = {"pieza_ldraw": peinado.get("id"), "nombre": peinado.get("nombre"), "color": peinado.get("color")}
+    if isinstance(peinado, dict):
+        r["peinado"] = {"nombre": peinado.get("nombre"), "color": peinado.get("color")}
+        if peinado.get("id") == "desde-foto":
+            r["peinado"]["origen"] = "flow1_cabello"
+        else:
+            r["peinado"]["pieza_ldraw"] = peinado.get("id")
     explicacion = explicar_ronda({"rondas": para_agente(reg)["rondas"] + [copy.deepcopy(r)]}, n)
     r["explicacion"] = explicacion
 

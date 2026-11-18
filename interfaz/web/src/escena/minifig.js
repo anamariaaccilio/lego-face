@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import { geometriaCabello, mallaCabello } from './cabello.js';
+import { geometriaCabello, geometriaGenerada, mallaCabello } from './cabello.js';
 import { CABEZA, COLOR, texturaCaraImagen, texturaCaraTito, texturaTorsoTito } from './texturas.js';
 
 const plastico = (color, extra = {}) =>
@@ -71,13 +71,19 @@ export class Cabeza {
     const turno = (this._turnoCabello = (this._turnoCabello || 0) + 1);
     const previo = this.grupo.getObjectByName('cabello');
     if (!peinado?.id) {
-      if (previo) this.grupo.remove(previo);
+      if (previo) {
+        this.grupo.remove(previo);
+        previo.material.dispose();
+      }
       return;
     }
-    const geo = await geometriaCabello(peinado.id);
+    const geo = peinado.malla ? geometriaGenerada(peinado.malla) : await geometriaCabello(peinado.id);
     if (turno !== this._turnoCabello) return;
     const viejo = this.grupo.getObjectByName('cabello');
-    if (viejo) this.grupo.remove(viejo);
+    if (viejo) {
+      this.grupo.remove(viejo);
+      viejo.material.dispose();
+    }
     this.grupo.add(mallaCabello(geo, peinado.color));
   }
 
