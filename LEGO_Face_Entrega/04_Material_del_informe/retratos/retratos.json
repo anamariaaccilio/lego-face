@@ -1,0 +1,62 @@
+[
+ {
+  "id": "p01",
+  "descripcion": "A 24-year-old Peruvian woman from Lima with long black hair, smiling.",
+  "semilla": 1000,
+  "modelo": "FLUX.2-klein-4B (4 bits), 4 pasos"
+ },
+ {
+  "id": "p02",
+  "descripcion": "A 45-year-old Andean Peruvian man from Cusco with short black hair and a neutral expression.",
+  "semilla": 1001,
+  "modelo": "FLUX.2-klein-4B (4 bits), 4 pasos"
+ },
+ {
+  "id": "p03",
+  "descripcion": "A 19-year-old Peruvian student with wavy dark brown hair and round black glasses, slight smile.",
+  "semilla": 1002,
+  "modelo": "FLUX.2-klein-4B (4 bits), 4 pasos"
+ },
+ {
+  "id": "p04",
+  "descripcion": "A 62-year-old Peruvian man with short gray hair and a gray mustache, smiling.",
+  "semilla": 1003,
+  "modelo": "FLUX.2-klein-4B (4 bits), 4 pasos"
+ },
+ {
+  "id": "p05",
+  "descripcion": "A 33-year-old Peruvian woman from the Amazon region with long straight black hair, serious expression.",
+  "semilla": 1004,
+  "modelo": "FLUX.2-klein-4B (4 bits), 4 pasos"
+ },
+ {
+  "id": "p06",
+  "descripcion": "A 28-year-old Peruvian man with a short black beard and short curly hair, smiling.",
+  "semilla": 1005,
+  "modelo": "FLUX.2-klein-4B (4 bits), 4 pasos"
+ },
+ {
+  "id": "p07",
+  "descripcion": "A 38-year-old Black woman with short natural curly hair, smiling.",
+  "semilla": 1006,
+  "modelo": "FLUX.2-klein-4B (4 bits), 4 pasos"
+ },
+ {
+  "id": "p08",
+  "descripcion": "A 52-year-old East Asian man with thin rectangular glasses and short black hair, neutral expression.",
+  "semilla": 1007,
+  "modelo": "FLUX.2-klein-4B (4 bits), 4 pasos"
+ },
+ {
+  "id": "p09",
+  "descripcion": "A 26-year-old white woman with shoulder-length red hair and freckles, smiling.",
+  "semilla": 1008,
+  "modelo": "FLUX.2-klein-4B (4 bits), 4 pasos"
+ },
+ {
+  "id": "p10",
+  "descripcion": "A 41-year-old South Asian man with a full dark beard and short black hair, slight smile.",
+  "semilla": 1009,
+  "modelo": "FLUX.2-klein-4B (4 bits), 4 pasos"
+ }
+]

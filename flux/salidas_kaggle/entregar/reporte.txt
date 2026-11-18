@@ -1,0 +1,385 @@
+# Reporte · 2026-11-17 06:04
+
+================================================================================
+Datos
+================================================================================
+Dataset: /kaggle/input/datasets/rodrifmg/pairlegoface
+4737 archivos · 4705 imágenes · 32 tablas · 31 carpetas
+  pares.csv: 4640 filas × 19 columnas → ['id', 'pieza', 'k', 'parte', 'version', 'particion', 'pasa', 'motivo_no_pasa', 'ruta', 'ruta_lego', 'genero', 'edad', 'origen', 'lentes', 'barba', 'bigote', 'femenino', 'semilla', 'prompt']
+      roles detectados: {'particion': 'particion', 'estampa': 'ruta_lego', 'foto': 'ruta', 'id': 'id', 'version': 'version', 'ok': 'pasa', 'lentes': 'lentes', 'barba': 'barba', 'bigote': 'bigote', 'femenino': 'femenino', 'edad': 'edad', 'texto': 'prompt'}
+  personas_g1_parte0/personas_g1_parte0/caras_excluidas.csv: 81 filas × 3 columnas → ['pieza', 'nombre', 'motivo_exclusion']
+      roles detectados: {}
+  personas_g1_parte0/personas_g1_parte0/resumen.json: se omite (JSON sin forma tabular)
+  personas_g1_parte0/personas_g1_parte0/revision.csv: 430 filas × 19 columnas → ['n', 'id', 'falla', 'pieza', 'k', 'particion', 'genero', 'edad', 'origen', 'lentes', 'barba', 'bigote', 'femenino', 'generada', 'ruta', 'ruta_lego', 'semilla', 'nombre', 'prompt']
+      roles detectados: {'particion': 'particion', 'estampa': 'ruta_lego', 'foto': 'ruta', 'id': 'id', 'lentes': 'lentes', 'barba': 'barba', 'bigote': 'bigote', 'femenino': 'femenino', 'edad': 'edad', 'texto': 'prompt'}
+  personas_g1_parte1/personas_g1_parte1/caras_excluidas.csv: 81 filas × 3 columnas → ['pieza', 'nombre', 'motivo_exclusion']
+      roles detectados: {}
+  personas_g1_parte1/personas_g1_parte1/resumen.json: se omite (JSON sin forma tabular)
+  personas_g1_parte1/personas_g1_parte1/revision.csv: 430 filas × 19 columnas → ['n', 'id', 'falla', 'pieza', 'k', 'particion', 'genero', 'edad', 'origen', 'lentes', 'barba', 'bigote', 'femenino', 'generada', 'ruta', 'ruta_lego', 'semilla', 'nombre', 'prompt']
+      roles detectados: {'particion': 'particion', 'estampa': 'ruta_lego', 'foto': 'ruta', 'id': 'id', 'lentes': 'lentes', 'barba': 'barba', 'bigote': 'bigote', 'femenino': 'femenino', 'edad': 'edad', 'texto': 'prompt'}
+  personas_g1_parte2/personas_g1_parte2/caras_excluidas.csv: 81 filas × 3 columnas → ['pieza', 'nombre', 'motivo_exclusion']
+      roles detectados: {}
+  personas_g1_parte2/personas_g1_parte2/resumen.json: se omite (JSON sin forma tabular)
+  personas_g1_parte2/personas_g1_parte2/revision.csv: 430 filas × 19 columnas → ['n', 'id', 'falla', 'pieza', 'k', 'particion', 'genero', 'edad', 'origen', 'lentes', 'barba', 'bigote', 'femenino', 'generada', 'ruta', 'ruta_lego', 'semilla', 'nombre', 'prompt']
+      roles detectados: {'particion': 'particion', 'estampa': 'ruta_lego', 'foto': 'ruta', 'id': 'id', 'lentes': 'lentes', 'barba': 'barba', 'bigote': 'bigote', 'femenino': 'femenino', 'edad': 'edad', 'texto': 'prompt'}
+  personas_g1_parte3/personas_g1_parte3/caras_excluidas.csv: 81 filas × 3 columnas → ['pieza', 'nombre', 'motivo_exclusion']
+      roles detectados: {}
+  personas_g1_parte3/personas_g1_parte3/resumen.json: se omite (JSON sin forma tabular)
+  personas_g1_parte3/personas_g1_parte3/revision.csv: 430 filas × 19 columnas → ['n', 'id', 'falla', 'pieza', 'k', 'particion', 'genero', 'edad', 'origen', 'lentes', 'barba', 'bigote', 'femenino', 'generada', 'ruta', 'ruta_lego', 'semilla', 'nombre', 'prompt']
+      roles detectados: {'particion': 'particion', 'estampa': 'ruta_lego', 'foto': 'ruta', 'id': 'id', 'lentes': 'lentes', 'barba': 'barba', 'bigote': 'bigote', 'femenino': 'femenino', 'edad': 'edad', 'texto': 'prompt'}
+  personas_g1_parte4/personas_g1_parte4/caras_excluidas.csv: 81 filas × 3 columnas → ['pieza', 'nombre', 'motivo_exclusion']
+      roles detectados: {}
+  personas_g1_parte4/personas_g1_parte4/resumen.json: se omite (JSON sin forma tabular)
+  personas_g1_parte4/personas_g1_parte4/revision.csv: 420 filas × 19 columnas → ['n', 'id', 'falla', 'pieza', 'k', 'particion', 'genero', 'edad', 'origen', 'lentes', 'barba', 'bigote', 'femenino', 'generada', 'ruta', 'ruta_lego', 'semilla', 'nombre', 'prompt']
+      roles detectados: {'particion': 'particion', 'estampa': 'ruta_lego', 'foto': 'ruta', 'id': 'id', 'lentes': 'lentes', 'barba': 'barba', 'bigote': 'bigote', 'femenino': 'femenino', 'edad': 'edad', 'texto': 'prompt'}
+  personas_g1_parte5/personas_g1_parte5/caras_excluidas.csv: 81 filas × 3 columnas → ['pieza', 'nombre', 'motivo_exclusion']
+      roles detectados: {}
+  personas_g1_parte5/personas_g1_parte5/resumen.json: se omite (JSON sin forma tabular)
+  personas_g1_parte5/personas_g1_parte5/revision.csv: 420 filas × 19 columnas → ['n', 'id', 'falla', 'pieza', 'k', 'particion', 'genero', 'edad', 'origen', 'lentes', 'barba', 'bigote', 'femenino', 'generada', 'ruta', 'ruta_lego', 'semilla', 'nombre', 'prompt']
+      roles detectados: {'particion': 'particion', 'estampa': 'ruta_lego', 'foto': 'ruta', 'id': 'id', 'lentes': 'lentes', 'barba': 'barba', 'bigote': 'bigote', 'femenino': 'femenino', 'edad': 'edad', 'texto': 'prompt'}
+  personas_g1_parte6/personas_g1_parte6/caras_excluidas.csv: 81 filas × 3 columnas → ['pieza', 'nombre', 'motivo_exclusion']
+      roles detectados: {}
+  personas_g1_parte6/personas_g1_parte6/resumen.json: se omite (JSON sin forma tabular)
+  personas_g1_parte6/personas_g1_parte6/revision.csv: 420 filas × 19 columnas → ['n', 'id', 'falla', 'pieza', 'k', 'particion', 'genero', 'edad', 'origen', 'lentes', 'barba', 'bigote', 'femenino', 'generada', 'ruta', 'ruta_lego', 'semilla', 'nombre', 'prompt']
+      roles detectados: {'particion': 'particion', 'estampa': 'ruta_lego', 'foto': 'ruta', 'id': 'id', 'lentes': 'lentes', 'barba': 'barba', 'bigote': 'bigote', 'femenino': 'femenino', 'edad': 'edad', 'texto': 'prompt'}
+  personas_g1_parte7/personas_g1_parte7/caras_excluidas.csv: 81 filas × 3 columnas → ['pieza', 'nombre', 'motivo_exclusion']
+      roles detectados: {}
+  personas_g1_parte7/personas_g1_parte7/resumen.json: se omite (JSON sin forma tabular)
+  personas_g1_parte7/personas_g1_parte7/revision.csv: 420 filas × 19 columnas → ['n', 'id', 'falla', 'pieza', 'k', 'particion', 'genero', 'edad', 'origen', 'lentes', 'barba', 'bigote', 'femenino', 'generada', 'ruta', 'ruta_lego', 'semilla', 'nombre', 'prompt']
+      roles detectados: {'particion': 'particion', 'estampa': 'ruta_lego', 'foto': 'ruta', 'id': 'id', 'lentes': 'lentes', 'barba': 'barba', 'bigote': 'bigote', 'femenino': 'femenino', 'edad': 'edad', 'texto': 'prompt'}
+  personas_g1_parte8/personas_g1_parte8/caras_excluidas.csv: 81 filas × 3 columnas → ['pieza', 'nombre', 'motivo_exclusion']
+      roles detectados: {}
+  personas_g1_parte8/personas_g1_parte8/resumen.json: se omite (JSON sin forma tabular)
+  personas_g1_parte8/personas_g1_parte8/revision.csv: 420 filas × 19 columnas → ['n', 'id', 'falla', 'pieza', 'k', 'particion', 'genero', 'edad', 'origen', 'lentes', 'barba', 'bigote', 'femenino', 'generada', 'ruta', 'ruta_lego', 'semilla', 'nombre', 'prompt']
+      roles detectados: {'particion': 'particion', 'estampa': 'ruta_lego', 'foto': 'ruta', 'id': 'id', 'lentes': 'lentes', 'barba': 'barba', 'bigote': 'bigote', 'femenino': 'femenino', 'edad': 'edad', 'texto': 'prompt'}
+  personas_g2_parte0/personas_g2_parte0/caras_excluidas.csv: 81 filas × 3 columnas → ['pieza', 'nombre', 'motivo_exclusion']
+      roles detectados: {}
+  personas_g2_parte0/personas_g2_parte0/resumen.json: se omite (JSON sin forma tabular)
+  personas_g2_parte0/personas_g2_parte0/revision.csv: 820 filas × 20 columnas → ['n', 'id', 'falla', 'pieza', 'k', 'particion', 'genero', 'edad', 'origen', 'lentes', 'barba', 'bigote', 'femenino', 'generada', 'ruta', 'ruta_lego', 'semilla', 'nombre', 'prompt', 'prompt_g1']
+      roles detectados: {'particion': 'particion', 'estampa': 'ruta_lego', 'foto': 'ruta', 'id': 'id', 'lentes': 'lentes', 'barba': 'barba', 'bigote': 'bigote', 'femenino': 'femenino', 'edad': 'edad', 'texto': 'prompt'}
+  revision_g2_parte0.csv: 820 filas × 22 columnas → ['n', 'id', 'falla', 'pieza', 'k', 'particion', 'genero', 'edad', 'origen', 'lentes', 'barba', 'bigote', 'femenino', 'generada', 'ruta', 'ruta_lego', 'semilla', 'nombre', 'prompt', 'prompt_g1', 'pasa', 'motivo_no_pasa']
+      roles detectados: {'particion': 'particion', 'estampa': 'ruta_lego', 'foto': 'ruta', 'id': 'id', 'ok': 'pasa', 'lentes': 'lentes', 'barba': 'barba', 'bigote': 'bigote', 'femenino': 'femenino', 'edad': 'edad', 'texto': 'prompt'}
+Tabla principal: pares.csv · roles {'particion': 'particion', 'estampa': 'ruta_lego', 'foto': 'ruta', 'id': 'id', 'version': 'version', 'ok': 'pasa', 'lentes': 'lentes', 'barba': 'barba', 'bigote': 'bigote', 'femenino': 'femenino', 'edad': 'edad', 'texto': 'prompt'}
+  estampas en 'ruta_lego': 382 distintas, 382 encontradas en disco. Ej.: ['caras_frente/28621p01.png', 'caras_frente/28621p02.png', 'caras_frente/28621p0o.png']
+  columna 'pasa': quedan 3510 de 4640 filas aprobadas
+  ⚠ 820 nombres de archivo están en más de una carpeta; se eligió por ruta. Ej.: ['28621p09_00.jpg', '28621p09_01.jpg', '28621p09_02.jpg']
+
+3510 fotos encontradas
+Particiones: {'entrenamiento': 2860, 'prueba': 360, 'validacion': 290}
+  valores originales: {'entrenamiento': 2860, 'prueba': 360, 'validacion': 290}
+Rasgos (conteo por valor; None = sin dato):
+  lentes      {'False': 2980, 'True': 530}
+  barba       {'False': 2810, 'True': 700}
+  bigote      {'False': 2930, 'True': 580}
+  expresion   {"'sonrisa'": 1710, 'None': 890, "'serio'": 640, "'neutral'": 160, "'sorpresa'": 110}
+  cabello     {'None': 3346, "'rizado'": 134, "'largo'": 20, "'calvo'": 10}
+  color_pelo  {'None': 3370, "'black'": 60, "'white'": 30, "'brown'": 30, "'red'": 10, "'grey'": 10}
+  color_cejas {'None': 2080, "'black'": 750, "'brown'": 260, "'reddish brown'": 150, "'dark brown'": 90, "'tan'": 70, "'gray'": 40, "'dark orange'": 20}
+  femenino    {'False': 2680, 'True': 830}
+  edad        {"'20-year-old'": 753, "'18-year-old'": 626, "'22-year-old'": 615, "'25-year-old'": 468, "'30-year-old'": 338, "'55-year-old'": 275, "'40-year-old'": 191, "'65-year-old'": 115}
+Fuente de los rasgos: {'tabla+texto(expresion)': 1443, 'tabla+texto(expresion,color_cejas)': 1030, 'tabla': 419, 'tabla+texto(color_cejas)': 324, 'tabla+texto(expresion,color_pelo)': 80, 'tabla+texto(cabello)': 61, 'tabla+texto(expresion,cabello)': 47, 'tabla+texto(color_pelo)': 30, 'tabla+texto(cabello,color_cejas)': 26, 'tabla+texto(expresion,cabello,color_cejas)': 20, 'tabla+texto(color_pelo,color_cejas)': 20, 'tabla+texto(cabello,color_pelo,color_cejas)': 10}
+Frases más comunes de la cara LEGO (sin cejas): {'smile': 280, 'white pupils': 240, 'moustache': 190, 'eyelashes': 150, 'cheek lines': 140, 'sideburns': 130, 'red lips': 120, 'freckles': 120, 'stubble': 120, 'goatee': 110, 'glasses': 110, 'chin dimple': 110, 'open mouth smile': 100, 'beard': 100, 'smirk': 100, 'nougat lips': 80, 'peach lips': 70, 'neutral': 60, 'wrinkles': 60, 'frown': 60, 'grin': 60, 'teeth': 50, 'white pupils ()': 50, 'lopsided grin': 40, 'standard grin': 40, 'dimple': 40, 'pink lips': 40, 'silver sunglasses': 40, 'beard stubble': 40, 'nougat cheek lines': 40}
+  850 fotos sin expresión reconocida. Ej. de su cláusula (ajusta config.PATRONES_EXPRESION_TEXTO):
+   · wiry moustache, goatee and eyebrows
+   · dark orange moustache, beard and messy hair
+   · blue headband and dark orange hair
+   · thin moustache, stubble and sideburns
+   · white beard, sideburns, moustache, eyebrows and white pupils
+   · green lips and red eyebrows
+   · white hair, eyebrows, and moustache
+   · light gray bandana, red dot and moustache
+   · white moustache, goatee, bushy eyebrows, cheek lines and forehead wrinkles
+   · white pupils, crooked mouth, eyebrows and dimple
+351 estampas reales (desde tabla)
+  tamaño más común: 128 de ancho × 118 de alto (100%); otros: []
+  trazo obtenido por: {'alfa': 351} · vacías: 0 · cobertura media del trazo: 14.7%
+  margen medio  arriba 18.7% (22.1 px) · abajo 23.8% (28.1 px) · izquierda 14.3% (18.3 px) · derecha 14.4% (18.4 px)
+  margen mediano arriba 19.5% · abajo 23.7% · izquierda 15.6% · derecha 15.6%
+  → tamaño final que usará el post-proceso: 128×118 (ancho × alto)
+
+Encuadre para la Etapa 3: mediana de 351 estampas reales · {'arriba': 0.19491525423728814, 'abajo': 0.23728813559322035, 'izquierda': 0.15625, 'derecha': 0.15625} · tamaño final 128x118 (ancho x alto)
+10 fotos elegidas de 360 candidatas (semilla 1234). Cobertura:
+  lentes=True         3 ✅
+  lentes=False        7 ✅
+  barba=True         4 ✅
+  bigote=True         4 ✅
+  expresion='sonrisa'    3 ✅
+  expresion='serio'      3 ✅
+  expresion='sorpresa'   0 — no hay en prueba
+  expresion='neutral'    1 ✅
+  femenino=True         3 ✅
+  femenino=False        7 ✅
+[Image (2000, 460)]
+   idx           nombre  lentes  barba  bigote  femenino         edad expresion color_cejas                                                            rasgos_lego
+0    0  3626cp7a_04.jpg   False   True    True     False  22-year-old     serio        gray                         grey eyebrows, moustache and stubble, sad face
+1    1  3626cp76_04.jpg    True  False   False      True  20-year-old   sonrisa       brown        black glasses, brown eyebrows, open mouth smile with peach lips
+2    2  3626bp39_09.jpg   False   True   False     False  65-year-old   sonrisa        None                                     grin, dark grey beard and eyebrows
+3    3  3626cpx8_03.jpg   False  False   False      True  25-year-old   neutral       brown                        brown eyebrows, eyelashes, orange lips, neutral
+4    4  3626bpw9_01.jpg   False   True    True     False  18-year-old      None        None                                  moustache, stubble and bald hair part
+5    5  3626bpw8_03.jpg    True  False    True     False  30-year-old      None        None                       glasses, pencil behind ear and pointed moustache
+6    6  3626cpx0_02.jpg   False  False   False      True  55-year-old     serio       black                            black eyebrows and red lips determined look
+7    7  3626cp1l_02.jpg   False   True   False     False  40-year-old   sonrisa       black  nougat cut half circle beard, black eyebrows and open mouth smile ...
+8    8  3626bp0k_07.jpg    True  False    True     False  45-year-old      None        None                                 glasses with grey moustache, crosseyed
+9    9  3626cpx9_08.jpg   False  False   False     False  70-year-old     serio        None                                                                   None
+
+================================================================================
+1.1 Cargar el pipeline
+================================================================================
+diffusers 0.42.0 · torch 2.11.0+cu130
+GPUs antes: cuda:0 Tesla T4 0.0/14.6 GiB · cuda:1 Tesla T4 0.0/14.6 GiB
+Flux2KleinPipeline cargado en 108 s · {'torch_dtype': torch.bfloat16, 'device_map': 'balanced'}
+hf_device_map: {'text_encoder': 0, 'transformer': 1, 'vae': 1}
+GPUs después: cuda:0 Tesla T4 7.5/14.6 GiB · cuda:1 Tesla T4 7.4/14.6 GiB
+✅ Flux2KleinPipeline.__call__ acepta image= (referencia)
+   anotación de image: list[PIL.Image.Image] | PIL.Image.Image | None
+
+================================================================================
+1.2 Prompts de las 10 fotos
+================================================================================
+10 prompts armados · 5 con algún rasgo por defecto (columna por_defecto)
+   idx           nombre                                  rasgos                            frase_expresion                       frase_lentes                frase_vello frase_color      por_defecto
+0    0  3626cp7a_04.jpg     barba bigote serio 22-year-old gray  a closed straight mouth and flat eyebrows                         no glasses  short beard and moustache        gray                 
+1    1  3626cp76_04.jpg  lentes mujer sonrisa 20-year-old brown                               a wide smile  wearing black rectangular glasses             no facial hair       brown                 
+2    2  3626bp39_09.jpg               barba sonrisa 65-year-old                               a wide smile                         no glasses                short beard       black            color
+3    3  3626cpx8_03.jpg         mujer neutral 25-year-old brown                         a small calm smile                         no glasses             no facial hair       brown                 
+4    4  3626bpw9_01.jpg          barba bigote calvo 18-year-old                         a small calm smile                         no glasses  short beard and moustache       black  expresion,color
+5    5  3626bpw8_03.jpg               lentes bigote 30-year-old                         a small calm smile  wearing black rectangular glasses                  moustache       black  expresion,color
+6    6  3626cpx0_02.jpg           mujer serio 55-year-old black  a closed straight mouth and flat eyebrows                         no glasses             no facial hair       black                 
+7    7  3626cp1l_02.jpg         barba sonrisa 40-year-old black                               a wide smile                         no glasses                short beard       black                 
+8    8  3626bp0k_07.jpg               lentes bigote 45-year-old                         a small calm smile  wearing black rectangular glasses                  moustache       black  expresion,color
+9    9  3626cpx9_08.jpg                       serio 70-year-old  a closed straight mouth and flat eyebrows                         no glasses             no facial hair       black            color
+
+Ejemplo de prompt completo (#0):
+Flat 2D printed face decal of a LEGO minifigure, front view, on a plain solid bright yellow background that fills the whole image. It is the LEGO face of the person in the reference photo: a closed straight mouth and flat eyebrows, no glasses, short beard and moustache, eyebrows in gray. Simple printed strokes with sharp edges and flat solid colors, small black oval eyes, only the facial features. No head outline, no hair, no shading, no 3D, no shadows, no text, no realistic skin.
+
+================================================================================
+1.3 Generar (4 pasos, guidance 1.0, 512x512, semilla 42)
+================================================================================
+  #0 3626cp7a_04.jpg: 32.3 s
+  #1 3626cp76_04.jpg: 31.8 s
+  #2 3626bp39_09.jpg: 33.6 s
+  #3 3626cpx8_03.jpg: 35.4 s
+  #4 3626bpw9_01.jpg: 34.1 s
+  #5 3626bpw8_03.jpg: 34.8 s
+  #6 3626cpx0_02.jpg: 34.4 s
+  #7 3626cp1l_02.jpg: 34.7 s
+  #8 3626bp0k_07.jpg: 34.5 s
+  #9 3626cpx9_08.jpg: 34.7 s
+Tiempo por imagen: primera 32.3 s (incluye calentamiento) · resto media 34.2 s (mín 31.8, máx 35.4) · total 340 s
+[Image (2040, 488)]
+
+================================================================================
+1.4 Autoverificación
+================================================================================
+✅ pipeline acepta image= (foto de referencia)
+✅ 10 imágenes generadas
+✅ tamaño 512x512
+✅ ninguna imagen negra/vacía (NaN en fp16 da negro)
+✅ tiempo medido en todas
+
+ETAPA1_OK = True
+
+📦 /kaggle/working/flux_cara/entregar.zip · 7 archivos + reporte.txt
+   → Descárgalo desde el panel Output (flux_cara/entregar.zip) y mándamelo.
+
+================================================================================
+2.1 Juez sobre la Etapa 1 y falla más común
+================================================================================
+CLIP openai/clip-vit-base-patch32 cargado en cuda:0
+  variante  idx           nombre  amarillo   fondo_hsv  borde_fondo  cobertura  suave  plana_regla  plana_clip  plana  solo_rasgos  lentes_det  barba_det  silueta  respeta  plana_y_amarilla
+0     base    0  3626cp7a_04.jpg      True  57,1.0,1.0         0.98      0.429  0.044         True        0.98   True        False       False       True    0.430     True              True
+1     base    1  3626cp76_04.jpg      True  57,1.0,1.0         1.00      0.409  0.058         True        0.99   True        False        True      False    0.409     True              True
+2     base    2  3626bp39_09.jpg      True  56,1.0,1.0         1.00      0.198  0.046         True        0.99   True        False       False       True    0.408     True              True
+3     base    3  3626cpx8_03.jpg      True  58,1.0,1.0         1.00      0.405  0.039         True        0.99   True        False       False      False    0.405     True              True
+4     base    4  3626bpw9_01.jpg      True  58,1.0,1.0         1.00      0.449  0.023         True        0.97   True        False       False       True    0.449     True              True
+5     base    5  3626bpw8_03.jpg      True  57,1.0,1.0         0.99      0.155  0.062         True        1.00   True        False        True       True    0.414    False              True
+6     base    6  3626cpx0_02.jpg      True  57,1.0,1.0         1.00      0.137  0.064         True        1.00   True        False       False      False    0.407     True              True
+7     base    7  3626cp1l_02.jpg      True  56,1.0,1.0         0.99      0.196  0.050         True        0.99   True        False       False       True    0.420     True              True
+8     base    8  3626bp0k_07.jpg      True  57,1.0,1.0         1.00      0.130  0.078         True        1.00   True        False        True       True    0.367    False              True
+9     base    9  3626cpx9_08.jpg      True  57,1.0,1.0         1.00      0.144  0.064         True        1.00   True        False       False      False    0.437     True              True
+Fallas en la Etapa 1 (de 10): {'3d': 0, 'fondo': 0, 'cara_completa': 10} → la más común: 'cara_completa'
+
+================================================================================
+2.2 Tres variantes para la falla 'cara_completa'
+================================================================================
+
+--- v1_solo_rasgos
+10 prompts armados · 5 con algún rasgo por defecto (columna por_defecto)
+  #0 3626cp7a_04.jpg: 35.5 s
+  #1 3626cp76_04.jpg: 34.5 s
+  #2 3626bp39_09.jpg: 34.7 s
+  #3 3626cpx8_03.jpg: 34.7 s
+  #4 3626bpw9_01.jpg: 34.6 s
+  #5 3626bpw8_03.jpg: 34.8 s
+  #6 3626cpx0_02.jpg: 34.5 s
+  #7 3626cp1l_02.jpg: 34.6 s
+  #8 3626bp0k_07.jpg: 34.5 s
+  #9 3626cpx9_08.jpg: 34.6 s
+Tiempo por imagen: primera 35.5 s (incluye calentamiento) · resto media 34.6 s (mín 34.5, máx 34.8) · total 347 s
+
+--- v2_lista
+10 prompts armados · 5 con algún rasgo por defecto (columna por_defecto)
+  #0 3626cp7a_04.jpg: 34.8 s
+  #1 3626cp76_04.jpg: 34.5 s
+  #2 3626bp39_09.jpg: 34.6 s
+  #3 3626cpx8_03.jpg: 34.8 s
+  #4 3626bpw9_01.jpg: 34.7 s
+  #5 3626bpw8_03.jpg: 34.5 s
+  #6 3626cpx0_02.jpg: 34.6 s
+  #7 3626cp1l_02.jpg: 34.7 s
+  #8 3626bp0k_07.jpg: 34.5 s
+  #9 3626cpx9_08.jpg: 34.7 s
+Tiempo por imagen: primera 34.8 s (incluye calentamiento) · resto media 34.6 s (mín 34.5, máx 34.8) · total 346 s
+
+--- v3_recortado
+10 prompts armados · 5 con algún rasgo por defecto (columna por_defecto)
+  #0 3626cp7a_04.jpg: 34.6 s
+  #1 3626cp76_04.jpg: 34.8 s
+  #2 3626bp39_09.jpg: 34.7 s
+  #3 3626cpx8_03.jpg: 34.7 s
+  #4 3626bpw9_01.jpg: 34.7 s
+  #5 3626bpw8_03.jpg: 34.6 s
+  #6 3626cpx0_02.jpg: 34.7 s
+  #7 3626cp1l_02.jpg: 34.6 s
+  #8 3626bp0k_07.jpg: 34.7 s
+  #9 3626cpx9_08.jpg: 34.5 s
+Tiempo por imagen: primera 34.6 s (incluye calentamiento) · resto media 34.7 s (mín 34.5, máx 34.8) · total 347 s
+         variante   n  planas  fondo_amarillo  planas_y_amarillas  respetan_lentes_y_barba  solo_rasgos  cobertura_media
+0            base  10      10              10                  10                        8            0            0.265
+1  v1_solo_rasgos  10      10              10                  10                        8            3            0.116
+2        v2_lista  10      10              10                  10                        6           10            0.031
+3    v3_recortado  10      10              10                  10                        6           10            0.094
+Criterio: meta > solo_rasgos > respetan_lentes_y_barba > planas_y_amarillas > cobertura_media
+Congelada: 'v3_recortado' · planas y amarillas 10/10 (meta 8) ✅ · solo rasgos 10/10 · respetan lentes y barba 6/10
+
+Prompt congelado:
+Close-up of a flat LEGO face print, only the printed features, cropped tight on a plain bright yellow background: {expresion}, {lentes}, {vello}, eyebrows in {color}, small black oval eyes. No head outline, no hair, no shading, no 3D, no shadows, no text.
+
+📦 /kaggle/working/flux_cara/entregar.zip · 13 archivos + reporte.txt
+   → Descárgalo desde el panel Output (flux_cara/entregar.zip) y mándamelo.
+
+================================================================================
+3.1 Post-proceso de las 10 imágenes de 'v3_recortado'
+================================================================================
+[Image (3040, 464)]
+   idx           nombre  descartada motivo  cobertura  borde_fondo               caja
+0    0  3626cp7a_04.jpg       False             0.054          1.0  (12, 23, 103, 67)
+1    1  3626cp76_04.jpg       False             0.120          1.0   (19, 23, 89, 67)
+2    2  3626bp39_09.jpg       False             0.141          1.0   (28, 23, 71, 67)
+3    3  3626cpx8_03.jpg       False             0.070          1.0   (23, 23, 82, 67)
+4    4  3626bpw9_01.jpg       False             0.064          1.0   (27, 23, 73, 67)
+5    5  3626bpw8_03.jpg       False             0.102          1.0   (17, 23, 93, 67)
+6    6  3626cpx0_02.jpg       False             0.072          1.0   (16, 23, 95, 67)
+7    7  3626cp1l_02.jpg       False             0.127          1.0   (27, 23, 73, 67)
+8    8  3626bp0k_07.jpg       False             0.118          1.0   (20, 23, 88, 67)
+9    9  3626cpx9_08.jpg       False             0.076          1.0   (16, 23, 96, 67)
+
+Pasan el guardrail: 10/10
+
+📦 /kaggle/working/flux_cara/entregar.zip · 25 archivos + reporte.txt
+   → Descárgalo desde el panel Output (flux_cara/entregar.zip) y mándamelo.
+
+================================================================================
+4.1 generar_cara para 3 fotos
+================================================================================
+3626cp7a_04.jpg: 5 caras en 174.0 s · reintentos 0 · descartadas 0
+[Image (960, 190)]
+3626cp76_04.jpg: 5 caras en 174.1 s · reintentos 0 · descartadas 0
+[Image (960, 190)]
+3626bp39_09.jpg: 5 caras en 278.3 s · reintentos 3 · descartadas 1
+[Image (960, 190)]
+               foto  k  semilla_final  reintentos  descartada  segundos                                                       intentos
+0   3626cp7a_04.jpg  0             42           0       False     35.01                                                          42:ok
+1   3626cp7a_04.jpg  1             43           0       False     34.46                                                          43:ok
+2   3626cp7a_04.jpg  2             44           0       False     34.63                                                          44:ok
+3   3626cp7a_04.jpg  3             45           0       False     34.57                                                          45:ok
+4   3626cp7a_04.jpg  4             46           0       False     34.64                                                          46:ok
+5   3626cp76_04.jpg  0             42           0       False     34.67                                                          42:ok
+6   3626cp76_04.jpg  1             43           0       False     34.73                                                          43:ok
+7   3626cp76_04.jpg  2             44           0       False     34.64                                                          44:ok
+8   3626cp76_04.jpg  3             45           0       False     34.76                                                          45:ok
+9   3626cp76_04.jpg  4             46           0       False     34.51                                                          46:ok
+10  3626bp39_09.jpg  0             42           0       False     34.66                                                          42:ok
+11  3626bp39_09.jpg  1           1043           1       False     69.27  43:descartada (cabeza dibujada (silueta 48% > 30%)) | 1043:ok
+
+Tiempo medio por cara (con reintentos): 41.6 s
+
+📦 /kaggle/working/flux_cara/entregar.zip · 44 archivos + reporte.txt
+   → Descárgalo desde el panel Output (flux_cara/entregar.zip) y mándamelo.
+
+================================================================================
+5.1 Librería oficial y catálogo de cabello
+================================================================================
+Librería LDraw descargada (urllib) de https://library.ldraw.org/library/updates/complete.zip: 140 MB en 1 s
+Librería: 37448 archivos · 322 colores en LDConfig.ldr
+Catálogo de cabello: 6 estilos (de 219 piezas 'Minifig Hair' en la librería)
+   estilo      pieza                        descripcion                                                        buscadas
+0   corto  40233.dat         Minifig Hair Short Tousled                  Minifig Hair Short Tousled | Minifig Hair Male
+1   largo  12890.dat  Minifig Hair Female Long Straight  Minifig Hair Female Long Straight | Minifig Hair Long Straight
+2  rizado  87995.dat   Minifig Hair Bubble Style (Afro)          Minifig Hair Bubble Style (Afro) | Minifig Hair Coiled
+3  coleta  6093a.dat              Minifig Hair Ponytail                                           Minifig Hair Ponytail
+4     bob  62711.dat         Minifig Hair Short Bob Cut                                      Minifig Hair Short Bob Cut
+5   calvo       None                               None                                                      (sin pelo)
+
+================================================================================
+5.2 Minifigs
+================================================================================
+
+3626cp7a_04.jpg: cara #1 · cabello {'estilo': 'corto', 'pieza': '40233.dat', 'color': 'Light_Bluish_Grey', 'fuente': 'por defecto (femenino=False)', 'color_de': 'gray'}
+   k  semilla  descartada  coinciden  de  p_lentes  p_vello  elegida
+0  0       42       False          1   2      0.03     0.31    False
+1  1       43       False          2   2      0.04     0.70     True
+2  2       44       False          1   2      0.03     0.41    False
+3  3       45       False          2   2      0.03     0.63    False
+4  4       46       False          2   2      0.04     0.82    False
+✅ todas las piezas existen (librería oficial o carpeta)
+✅ sintaxis START PLANAR (9 números + png)
+✅ orden START → FALLBACK → END
+✅ líneas '0 !:' con la geometría texturizada
+✅ PNG con alfa en textures/
+✅ CR/LF
+[Image (600, 600)]
+
+3626cp76_04.jpg: cara #0 · cabello {'estilo': 'largo', 'pieza': '12890.dat', 'color': 'Reddish_Brown', 'fuente': 'por defecto (femenino=True)', 'color_de': 'brown'}
+   k  semilla  descartada  coinciden  de  p_lentes  p_vello  elegida
+0  0       42       False          2   2      0.97     0.35     True
+1  1       43       False          2   2      0.98     0.18    False
+2  2       44       False          2   2      0.97     0.26    False
+3  3       45       False          2   2      0.98     0.30    False
+4  4       46       False          2   2      0.98     0.26    False
+✅ todas las piezas existen (librería oficial o carpeta)
+✅ sintaxis START PLANAR (9 números + png)
+✅ orden START → FALLBACK → END
+✅ líneas '0 !:' con la geometría texturizada
+✅ PNG con alfa en textures/
+✅ CR/LF
+[Image (600, 600)]
+
+3626bp39_09.jpg: cara #0 · cabello {'estilo': 'corto', 'pieza': '40233.dat', 'color': 'Black', 'fuente': 'por defecto (femenino=False)', 'color_de': 'defecto'}
+   k  semilla  descartada  coinciden  de  p_lentes  p_vello  elegida
+0  0       42       False          2   2      0.10     0.89     True
+1  1     1043       False          2   2      0.10     0.98    False
+2  2       44       False          2   2      0.09     0.93    False
+3  3     2045        True          2   2      0.07     0.93    False
+4  4       46       False          2   2      0.07     0.95    False
+✅ todas las piezas existen (librería oficial o carpeta)
+✅ sintaxis START PLANAR (9 números + png)
+✅ orden START → FALLBACK → END
+✅ líneas '0 !:' con la geometría texturizada
+✅ PNG con alfa en textures/
+✅ CR/LF
+[Image (600, 600)]
+
+ETAPA5_OK = True
+
+================================================================================
+Resumen
+================================================================================
+Etapa 1 OK: True
+Etapa 2: falla más común 'cara_completa' {'3d': 0, 'fondo': 0, 'cara_completa': 10} · congelada 'v3_recortado' · meta 8/10: True
+Etapa 3: pasan el guardrail 10 de 10
+Etapa 4: caras 15 · descartadas 1 · s/cara 41.6
+Etapa 5 OK: True
+
+📦 /kaggle/working/flux_cara/entregar.zip · 66 archivos + reporte.txt
+   → Descárgalo desde el panel Output (flux_cara/entregar.zip) y mándamelo.

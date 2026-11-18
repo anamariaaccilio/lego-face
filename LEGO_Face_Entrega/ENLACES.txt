@@ -1,0 +1,20 @@
+LEGO Face, Proyecto 2, Planificación y Toma de Decisiones en IA (UTEC)
+Profesor: Robert Buleje Del Carpio
+
+Equipo
+- Ana Maria Accilio Villanueva (202120050)
+- Rodrigo Félix Meza Gavilán (202220037)
+- Josep Ratzinger Castro Ferrer (202220059)
+- Jazmin Nicole Soto Quiñonez (202220081)
+- Ruben Aaron Coorahua Peña (202110086)
+
+Repositorio: [PENDIENTE]
+Video demostrativo: [PENDIENTE]
+Carpeta de Drive: [PENDIENTE]
+
+Contenido de la entrega
+01_Informe            Informe en PDF y su fuente LaTeX
+02_Presentacion       PPT de la exposición, con el guion en las notas del orador
+03_Video              Instrucciones y enlace del video
+04_Material_del_informe  Figuras, comparación de métodos, retratos sintéticos y scripts
+05_Usabilidad         Guía de la prueba, cuestionario SUS, planilla y calculadora

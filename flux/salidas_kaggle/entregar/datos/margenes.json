@@ -1,0 +1,44 @@
+{
+  "n": 351,
+  "origen": "tabla",
+  "tamano_dominante": [
+    128,
+    118
+  ],
+  "fraccion_tamano_dominante": 1.0,
+  "tamanos": [
+    [
+      128,
+      118,
+      351
+    ]
+  ],
+  "n_vacias": 0,
+  "n_error": 0,
+  "mascara": {
+    "alfa": 351
+  },
+  "cobertura_media": 0.14747739509392052,
+  "fraccion": {
+    "arriba": 0.18723743300014487,
+    "abajo": 0.2383746197305519,
+    "izquierda": 0.1427394943019943,
+    "derecha": 0.14380787037037038
+  },
+  "fraccion_mediana": {
+    "arriba": 0.19491525423728814,
+    "abajo": 0.23728813559322035,
+    "izquierda": 0.15625,
+    "derecha": 0.15625
+  },
+  "px": {
+    "arriba": 22.094017094017094,
+    "abajo": 28.128205128205128,
+    "izquierda": 18.270655270655272,
+    "derecha": 18.40740740740741
+  },
+  "tamano_final": [
+    128,
+    118
+  ]
+}

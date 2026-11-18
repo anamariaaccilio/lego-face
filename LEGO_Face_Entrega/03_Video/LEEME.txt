@@ -1,0 +1,5 @@
+Video demostrativo (3 minutos o menos)
+Persona: docente de UTEC o alumno de otra carrera (no CS ni Ciencia de Datos).
+Debe incluir: 10 s de presentación y consentimiento, sus elecciones y sus comentarios.
+Guion y texto de consentimiento: 05_Usabilidad/guia_prueba.md
+Enlace (YouTube o Drive): [PENDIENTE]

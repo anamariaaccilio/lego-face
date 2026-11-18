@@ -1,0 +1,53 @@
+{
+ "modelo_propio": {
+  "personas": 10,
+  "clip_propia": {
+   "media": 0.5616,
+   "desv": 0.0478
+  },
+  "clip_ajena": {
+   "media": 0.5347,
+   "desv": 0.0237
+  },
+  "clip_margen": {
+   "media": 0.0269,
+   "desv": 0.0437
+  },
+  "clip_top1": "10 de 50",
+  "clip_top1_tasa": 0.2,
+  "lpips_medio": {
+   "media": 0.1434,
+   "desv": 0.0634
+  },
+  "segundos_ronda": {
+   "media": 18.63,
+   "desv": 2.2901
+  }
+ },
+ "flux": {
+  "personas": 10,
+  "clip_propia": {
+   "media": 0.5674,
+   "desv": 0.0319
+  },
+  "clip_ajena": {
+   "media": 0.5563,
+   "desv": 0.0053
+  },
+  "clip_margen": {
+   "media": 0.0111,
+   "desv": 0.0339
+  },
+  "clip_top1": "8 de 50",
+  "clip_top1_tasa": 0.16,
+  "lpips_medio": {
+   "media": 0.2991,
+   "desv": 0.0501
+  },
+  "segundos_ronda": {
+   "media": 102.09,
+   "desv": 4.5747
+  }
+ },
+ "azar_top1": 0.1
+}

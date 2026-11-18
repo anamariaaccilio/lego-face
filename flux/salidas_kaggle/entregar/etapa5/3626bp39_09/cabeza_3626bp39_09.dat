@@ -1,0 +1,23 @@
+0 Minifig Head with Generated Face cabeza_3626bp39_09
+0 Name: cabeza_3626bp39_09.dat
+0 Author: flux_cara
+0 // Basado en 3626c.dat y en la cabeza oficial con textura 3626cpx0.dat
+
+0 BFC CERTIFY CCW
+
+1 16 0 0 0 1 0 0 0 1 0 0 0 1 s\3626cs01.dat
+
+0 // Cara (mitad frontal) con textura
+0 !TEXMAP START PLANAR -13 0 10 13 0 10 -13 21 10 cara_3626bp39_09.png
+0 !: 1 16 0 4 0 13 0 0 0 13 0 0 0 -13 2-4cyli.dat
+0 !: 1 16 0 4 0 0 0 -8 0 -6.4 0 -8 0 0 t04o6250.dat
+0 !: 1 16 0 4 0 8 0 0 0 -6.4 0 0 0 -8 t04o6250.dat
+0 !: 1 16 0 17 0 0 0 8 0 6.4 0 -8 0 0 t04o6250.dat
+0 !: 1 16 0 17 0 -8 0 0 0 6.4 0 0 0 -8 t04o6250.dat
+0 !TEXMAP FALLBACK
+1 16 0 4 0 13 0 0 0 13 0 0 0 -13 2-4cyli.dat
+1 16 0 4 0 0 0 -8 0 -6.4 0 -8 0 0 t04o6250.dat
+1 16 0 4 0 8 0 0 0 -6.4 0 0 0 -8 t04o6250.dat
+1 16 0 17 0 0 0 8 0 6.4 0 -8 0 0 t04o6250.dat
+1 16 0 17 0 -8 0 0 0 6.4 0 0 0 -8 t04o6250.dat
+0 !TEXMAP END
